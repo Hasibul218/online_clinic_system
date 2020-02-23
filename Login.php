@@ -23,7 +23,7 @@
 				<tr>
 					<td colspan="2" align="center">
 						<input type="submit" name="login" value="Login"><br>
-						<span><b>Or Register <a href="">here</a></b></span>
+						<span><b>Or Register <a href="HomePage.php">here</a></b></span>
 					</td>
 				</tr>
 			</table>
