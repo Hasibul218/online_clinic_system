@@ -5,14 +5,14 @@
 	</head>
 	<body>
 		<div class="btngrp">
-			<button name="home"class="button">Home</button>
+			<button type="button"name="home"class="button">Home</button>
 			<button name="home"class="button">Login</button>
 		</div>
 		<div class="dregister">
 			<div class="para1">
 				<p class="p1">
-					Welcome to Doctorola.com ! By signing up 
-					with Doctorola.com, you confirm your understanding and agreement 
+					Welcome to Online Clinic ! By signing up 
+					with Onlineclinic.com, you confirm your understanding and agreement 
 					that each appointment brought to you by Doctorola.com will have a nominal fee of <mark>BDT 20</mark>
 				</p>
 			</div>
