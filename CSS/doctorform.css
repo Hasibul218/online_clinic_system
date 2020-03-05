@@ -21,6 +21,12 @@ h4{
 #dregister{
 margin-left: 0px;
 }
+.errmgs
+{
+	margin-left: 71px;
+    float: left;
+    color: red;
+}
 label{
     color: #100f0f;
     font-size: 17px;
@@ -103,3 +109,4 @@ label{
     text-align: justify;
     font-family: serif;
 }
+
