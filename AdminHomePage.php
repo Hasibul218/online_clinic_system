@@ -14,15 +14,15 @@
 			<div class="dropdown">
 				<button class="dropbtn">Doctor</button>
 				<div class="dropdown-content">
-					<a href="">Doctors List</a>
-					<a href="">Doctor's Request</a>
+					<a href="AdminDoctorList.php">Doctors List</a>
+					<a href="AdminDoctorRequest.php">Doctor's Request</a>
 				</div>
 			</div>
 			<div class="dropdown">
 				<button class="dropbtn">Patient</button>
 				<div class="dropdown-content">
-			    <a href="">Patient List</a>
-			    <a href="">Patient History</a>
+			    <a href="AdminPatientList.php">Patient List</a>
+			    <a href="AdminPatientHistory.php">Patient History</a>
 			  </div>
 			</div>
 			<div class="dropdown">
