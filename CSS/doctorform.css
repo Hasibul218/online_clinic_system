@@ -94,6 +94,7 @@ label{
   font-size: 16px;
   cursor: pointer;
   float:right;
+  font-family: inherit;
 }
 .btngrp .button:hover{
 	  background-color: #3e8e41;
