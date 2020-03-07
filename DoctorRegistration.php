@@ -155,8 +155,8 @@
 	</head>
 	<body>
 		<div class="btngrp">
-			<button type="button"name="home"class="button">Home</button>
-			<button name="home"class="button">Login</button>
+			<button type="button"name="home"class="button"onclick="window.location='HomePage.php'">Home</button>
+			<button name="home"class="button"onclick="window.location='Login.php'">Login</button>
 		</div>
 		<div class="dregister">
 			<div class="para1">
