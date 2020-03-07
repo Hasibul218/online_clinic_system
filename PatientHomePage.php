@@ -15,7 +15,7 @@
 		<div class="sidebar">                <!--https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_sidenav_dropdown-->
 			<a href="PatientProfile.php">Profile</a>
 			<a href="PatientTakeAppointment.php">Take Appoinment</a>
-			<a href="PatientNotification.php">Prescription</a>
+			<a href="PatientPrescription.php">Prescription</a>
 			<a href="PatientNotification.php">Noification</a>
 		</div>
 	</body>
