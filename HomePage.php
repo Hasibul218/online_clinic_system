@@ -6,9 +6,9 @@
 	<body>
 		<div class="btngrp">
 			<label class="h1">Welcome to Online Clinic</label>
-			<button type="button"name="home"class="button">Home
+			<button type="button"name="home"class="button"onclick="window.location='HomePage.php'">Home
 			</button>
-			<button type="button"name="home"class="button">Login</button>
+			<button type="button"name="home"class="button"onclick="window.location='Login.php'">Login</button>
 			
 			<div class="dropdown">
 				<button class="dropbtn">Sign up 
