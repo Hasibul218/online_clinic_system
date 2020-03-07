@@ -17,8 +17,9 @@
 		</script>
 		
 		<div class="btngrp">
-			<button type="button"name="home"class="button">Home</button>
-			<button type="button"name="home"class="button">Login</button>
+			<label class="ll">Online Clinic</label>
+			<button type="button"name="home"class="button"onclick="window.location='HomePage.php'">Home</button>
+			<button type="button"name="home"class="button"onclick="window.location='Login.php'">Login</button>
 		</div>
 		<form method="" action="">
 			<div class="login">
