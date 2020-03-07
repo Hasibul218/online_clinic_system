@@ -1,0 +1,33 @@
+*
+{
+	margin:0px;
+	padding:0px;
+}
+
+.div1
+{
+	background-color: #4CAF50;
+    padding: 4px;
+	text-align:center;
+}
+h2
+{
+	letter-spacing: 7.5px;
+    font-family: inherit;
+    font-size: 32px;
+}
+ .button
+{
+	float: right;
+    padding: 10px;
+    background-color: #4CAF50;
+    border: none;
+    cursor: pointer;
+    color: white;
+    font-family: inherit;
+    font-size: 20px;
+}
+.button:hover
+{
+	background-color:#3e8e41;
+}
