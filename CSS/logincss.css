@@ -64,6 +64,14 @@ padding: 7px;
 .submit:hover {
   background-color: #3e8e41;
 }
+.btngrp .ll
+{
+	font-size: 33px;
+    float: left;
+    letter-spacing: 7.5px;
+    margin-left: 495px;
+    font-family: inherit;
+}
 .lbl
 {
 	margin-left: 155px;
