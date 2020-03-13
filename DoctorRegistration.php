@@ -152,11 +152,19 @@
 	<head>
 		<title>Doctor Registration Form</title>
 		<link rel="stylesheet"type="text/css"href="CSS/doctorform.css">
+		<link rel="stylesheet"type="text/css"href="CSS/homepage.css">
 	</head>
 	<body>
-		<div class="btngrp">
+		<div class="btngrp1">
 			<button type="button"name="home"class="button"onclick="window.location='HomePage.php'">Home</button>
 			<button name="home"class="button"onclick="window.location='Login.php'">Login</button>
+			<div class="dropdown">
+				<button type="button" class="dropbtn">Sign up</button>
+				<div class="dropdown-content">
+					<a href="DoctorRegistration.php">Doctor</a>
+					<a href="PatientRegistration.php">Patient</a>
+				</div>
+			</div>
 		</div>
 		<div class="dregister">
 			<div class="para1">
