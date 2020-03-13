@@ -79,11 +79,11 @@ label{
 	    font-size: 29px;
     color: white;
 }
-.btngrp{
+.btngrp1{
     padding-bottom: 48px;
     background-color: #4CAF50;
 }
-.btngrp .button {
+.button {
   background-color: #4CAF50; /* Green */
   border: none;
   color: white;
@@ -96,7 +96,7 @@ label{
   float:right;
   font-family: inherit;
 }
-.btngrp .button:hover{
+.button:hover{
 	  background-color: #3e8e41;
 }
 .dregister .para1{
@@ -110,4 +110,3 @@ label{
     text-align: justify;
     font-family: serif;
 }
-
