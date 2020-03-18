@@ -14,6 +14,7 @@
 			<button type="button"class="adminbtn"onclick="window.location='AdminHomePage.php'">Home</button>
 			<button type="button"class="adminbtn"oneclick="">Logout</button>
 		</div>
+		<!--search bar & table ends-->
 		<div class="search">
 			<div class="input-group mb-3">
 				<div class="input-group-prepend">
@@ -53,5 +54,6 @@
 			  </tbody>
 			</table>
 		</div>
+		<!--search bar & table ends-->
 	</body>
 </html>
