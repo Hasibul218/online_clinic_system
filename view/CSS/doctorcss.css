@@ -108,3 +108,31 @@ position: absolute;
     margin: 54px 0px 0px 25px;
     float: left;
 }
+.setschedule
+{
+    background-color: #333;
+    margin: 0px 0px 0px 420px;
+    float: inherit;
+    width: 487px;
+    border: none;
+    border-radius: 5px;
+}
+.setschedule-content
+{
+    font-style: initial;
+    color: #d06185;
+}
+.setschedule-list
+{
+   
+       font-size: 20px;
+    letter-spacing: normal;
+    color: white;
+    padding: 56px 0px 85px 174px;
+}
+h5
+{
+        letter-spacing: normal;
+    padding: 22px 0px 0px 116px;
+}
+
