@@ -9,7 +9,7 @@
 	<body>
 		<div class="head">
 			<label class="l1">Welcome Admin</label>
-			<button type="button"class="adminbtn"oneclick="Location:AdminHomePage.php">Home</button>
+			<button type="button"class="adminbtn"onclick="window.location='AdminHomePage.php'">Home</button>
 			<button type="button"class="adminbtn"oneclick="">Logout</button>
 		</div>
 		<label class="l2">Admin Name :</label>
