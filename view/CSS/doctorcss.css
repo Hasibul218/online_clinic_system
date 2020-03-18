@@ -1,25 +1,25 @@
 *
 {
-	margin:0px;
-	padding:0px;
+    margin:0px;
+    padding:0px;
 }
 
 .div1
 {
-	background-color: #4CAF50;
+    background-color: #4CAF50;
     padding: 4px;
-	text-align:center;
+    text-align:center;
 }
 h2
 {
-	letter-spacing: 7.5px;
+    letter-spacing: 7.5px;
     font-family: inherit;
     font-size: 32px;
     margin-left: 227px;
 }
  .button
 {
-	float: right;
+    float: right;
     padding: 10px;
     background-color: #4CAF50;
     border: none;
@@ -30,7 +30,7 @@ h2
 }
 .button:hover
 {
-	background-color:#3e8e41;
+    background-color:#3e8e41;
 }
 .bg-model
 {
@@ -43,21 +43,21 @@ h2
 display:none;
 justify-content:center;
 align-items:center;
-	
+    
 }
 .model-content
 {
-	    width: 500px;
-    height: 370px;
+        width: 500px;
+    height: 590px;
     background-color: #2b2626;
-	border-radius:4px;
-	text-align:center;
-	padding:20px;
-	position:relative;
+    border-radius:4px;
+    text-align:center;
+    padding:20px;
+    position:relative;
 }
 .content
 {
-	    color: white;
+        color: white;
     font-family: inherit;
     font-size: 14px;
 }
@@ -78,11 +78,11 @@ width: 100px;
     color: white;
     font-family: inherit;
     letter-spacing: 3px;
-	cursor:pointer;
+    cursor:pointer;
 }
 .prescrive:hover
 {
-	background-color:#111;
+    background-color:#111;
 }
 .close{
 position: absolute;
@@ -94,4 +94,17 @@ position: absolute;
     color: red;
     background-color: #2b2626;
     border: none;
+}
+
+.table
+{
+    width: 98%;
+    margin: 49px 0px 0px 13px;
+    text-align: center;
+}
+.search
+{
+    width: 29%;
+    margin: 54px 0px 0px 25px;
+    float: left;
 }
