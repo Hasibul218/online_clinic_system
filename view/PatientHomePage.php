@@ -8,6 +8,7 @@
 	</head>
 	<body>
 		<button class="button"onclick="window.location='Login.php'">Logout</button>
+		<button class="button"onclick="window.location='PatientNotification.php'">Noification</button>
 		<div class="div1">
 			<h2>Home Page</h2>
 		</div>
@@ -16,7 +17,6 @@
 			<a href="PatientProfile.php">Profile</a>
 			<a href="PatientTakeAppointment.php">Take Appoinment</a>
 			<a href="PatientPrescription.php">Prescription</a>
-			<a href="PatientNotification.php">Noification</a>
 		</div>
 	</body>
 </html>
