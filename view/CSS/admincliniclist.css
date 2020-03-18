@@ -5,7 +5,7 @@
 .div1
 {
 	background-color: #4CAF50;
-    padding: 2px;
+    padding: 5px;
 }
 .h2
 {
@@ -31,4 +31,16 @@ font-size: 35px;
 .adminbtn:hover
 {
 	 background-color: #3e8e41;
+}
+.table
+{
+    width: 98%;
+    margin: 49px 0px 0px 13px;
+    text-align: center;
+}
+.search
+{
+    width: 40%;
+    float: left;
+    margin: 58px 0px 0px 404px;
 }
