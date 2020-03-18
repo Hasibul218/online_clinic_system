@@ -4,10 +4,13 @@
 			Admin Home Page
 		</title>
 		<link rel="stylesheet"type="text/css"href="CSS/adminhomepage.css">
+		<link rel="stylesheet"type="text/css"href="CSS/admincliniclist.css">
 	</head>
 	<body>
 		<div class="head">
 			<label class="l1">Welcome Admin</label>
+			<button type="button"class="adminbtn"oneclick="Location:AdminHomePage.php">Home</button>
+			<button type="button"class="adminbtn"oneclick="">Logout</button>
 		</div>
 		<label class="l2">Admin Name :</label>
 		<div id="admin-navbar"style="text-align:center">
