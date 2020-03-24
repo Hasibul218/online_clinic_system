@@ -173,7 +173,7 @@ include '../model/db_connect.php';
 		{
 
 			//matching userid with database
-			$query="SELECT userid FROM patients WHERE userid='$uid'";
+			$query="SELECT userid FROM users WHERE userid='$uid'";
 			$result=execute($query);
 			if(mysqli_num_rows($result)>0)
 			{
