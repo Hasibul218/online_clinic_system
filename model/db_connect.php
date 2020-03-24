@@ -28,8 +28,8 @@
 		if (mysqli_num_rows($result)>0) {
 			while ($rows=mysqli_fetch_assoc($result)) {
 				$entity=array();//associative array
-				foreach ($row as $key => $value) {
-					$entity[$key]=$row[$key];
+				foreach ($rows as $key => $value) {
+					$entity[$key]=$rows[$key];
 				}
 				$data[]=$entity;
 			}
