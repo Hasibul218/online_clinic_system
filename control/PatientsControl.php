@@ -177,7 +177,7 @@ include '../model/db_connect.php';
 			$result=execute($query);
 			if(mysqli_num_rows($result)>0)
 			{
-				$err_uid= "user name not available";
+				$err_uid= "user id not available";
 			}
 			else
 			{
