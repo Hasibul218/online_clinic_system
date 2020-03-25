@@ -20,8 +20,15 @@
 			</div> 
 		</div>
 		<h2>Clinic For Doctor & Patient</h2>
-		<div class="anime">
-			
+		<div class="maindiv"></div>
+		<div class="maindiv2"></div>
+		<div class="maindiv3">
+			<p class="p">
+				Call us at +8801747979703
+				Website: www.onlineclinic.com
+				<a href="https://www.facebook.com/onlineclinic.helth/">visit our facebook page</a>
+				<a href="https://www.mhealth.org/Care/Conditions/COVID-19"> <br>->CORONAVIRUS (COVID-19)</a> The information you need to know
+			</p>
 		</div>
 	</body>
 </html>
