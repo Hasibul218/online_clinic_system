@@ -1,9 +1,30 @@
 <?php
+	include '../control/PatientsControl.php';
 	session_start();
 	if(!isset($_SESSION['uid']))
 	{
 		header("Location:Login.php");
 	}
+	$patients=patientsdata($_SESSION['uid']);
+	$users=patientuser($_SESSION['uid']);
+	foreach ($users as $user) {
+		$password=$user["password"];
+	}
+	foreach ($patients as $patient) {
+		$userid=$patient["userid"];
+		$username=$patient["username"];
+		$gender=$patient["gender"];
+		$email=$patient["email"];
+		$number=$patient["phonenumber"];
+		$dob=$patient["dob"];
+		$bloodgroup=$patient["bloodgroup"];
+		$divission=$patient["divission"];
+		$district=$patient["district"];
+		$thana=$patient["thana"];
+	}
+	
+		
+	
 ?>
 <html>
 	<head>
@@ -30,7 +51,7 @@
 							<label>User Id</label><br><br>
 						</td>
 						<td>
-							<input type="text" name="uid"placeholder="Enter User id"id="field" value="">
+							<input type="text" name="uid"placeholder="Enter User id"id="field" value="<?php echo $userid ?>">
 							<label class="errmgs"></label>
 							<br><br>
 						</td>
@@ -40,7 +61,7 @@
 							<label>User Name</label><br><br>
 						</td>
 						<td>
-							<input type="text" name="uname"placeholder="Enter User name"id="field" value="">
+							<input type="text" name="uname"placeholder="Enter User name"id="field" value="<?php echo $username ?>">
 							<label class="errmgs"></label>
 							<br><br>
 						</td>
@@ -50,7 +71,7 @@
 							<label>Password</label><br><br>
 						</td>
 						<td>
-							<input type="password" name="pass"placeholder="Enter Password"id="field" value="">
+							<input type="password" name="pass"placeholder="Enter Password"id="field" value="<?php echo $password ?>">
 							<label class="errmgs"></label>
 							<br><br>
 						</td>
@@ -62,7 +83,7 @@
 							<label>Gender</label><br><br>
 						</td>
 						<td>
-							<input type="text" name="gender"placeholder="gender"id="field" value="">
+							<input type="text" name="gender"placeholder="gender"id="field" value="<?php echo $gender ?>">
 							<label class="errmgs"></label>
 							<br><br>
 						</td>
@@ -72,7 +93,7 @@
 							<label>Email</label><br><br>
 						</td>
 						<td>
-							<input type="text" name="email"placeholder="example@mail.com"id="field"value="">
+							<input type="text" name="email"placeholder="example@mail.com"id="field"value="<?php echo $email ?>">
 							<label class="errmgs"></label>
 							<br><br>
 						</td>
@@ -82,7 +103,7 @@
 							<label>Phone Number</label><br><br>
 						</td>
 						<td>
-							<input type="text" name="number"placeholder="01XXXXXXXXX"id="field"value="">
+							<input type="text" name="number"placeholder="01XXXXXXXXX"id="field"value="<?php echo $number ?>">
 							<label class="errmgs"></label>
 							<br><br>
 					</tr>		
@@ -91,7 +112,7 @@
 							<label>Date of Birth</label><br><br>
 						</td>
 						<td>
-							<input type="text" name="dob" value=""id="field" >
+							<input type="text" name="dob" value="<?php echo $dob ?>"id="field" >
 							<label class="errmgs"></label>
 							<br><br>
 						</td>
@@ -101,7 +122,7 @@
 							<label>Blood Group</label><br><br>
 						</td>
 						<td>
-							<input type="text" name="bloodgroup" value=""id="field" >
+							<input type="text" name="bloodgroup"id="field"value="<?php echo $bloodgroup ?>" >
 							<label class="errmgs"></label>
 							<br><br>
 						</td>
@@ -112,8 +133,8 @@
 							<label>Address</label><br><br>
 						</td>
 						<td>
-							<select name="divission"id="address">
-								<option selected disabled>Divission</option>
+							<select name="divission"id="address"value="">
+								<option selected disabled><?php echo $divission ?></option>
 								<option value="Rajshahi">Rajshahi</option>
 								<option value="Dhaka" >Dhaka</option>
 								<option value="Borisal" >Borisal</option>
@@ -121,7 +142,7 @@
 								<option value="Chittagong">Chittagong</option>
 							</select>
 							<select name="district"id="address">
-								<option selected disabled>District</option>
+								<option selected disabled><?php echo $district ?></option>
 								<option value="Rajshahi">Rajshahi</option>
 								<option value="Dhaka" >Dhaka</option>
 								<option value="Borisal" >Borisal</option>
@@ -129,7 +150,7 @@
 								<option value="Chittagong">Chittagong</option>
 							</select>
 							<select name="thana"id="address">
-								<option selected disabled>Thana</option>
+								<option selected disabled><?php echo $thana ?></option>
 								<option value="Rajshahi">Rajshahi</option>
 								<option value="Dhaka" >Dhaka</option>
 								<option value="Borisal" >Borisal</option>

@@ -213,5 +213,17 @@ function insertpatient()
 	execute($pquery); 
 	execute($uquery); 
 }
+function patientsdata($uid)
+{
+	$pquery="SELECT * FROM patients WHERE userid='$uid'";
+	$presults=getdata($pquery);
+	return $presults;
+}
+function patientuser($uid)
+{
+	$uquery="SELECT password FROM users WHERE userid='$uid'";
+	$uresults=getdata($uquery);
+	return $uresults;
+}
 
 ?>
