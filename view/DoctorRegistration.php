@@ -185,7 +185,7 @@
 				<button name="submit"class="submit">Submit</button>
 			</form>	
 		</div>
-		<div class="div1">
+		<div class="bottom">
 			<a href=""class="d1">About us |</a>
 			<a href=""class="d1">FAQ| </a>
 			<a href=""class="d1"> Privacy Policy</a>
