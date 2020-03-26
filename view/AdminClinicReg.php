@@ -1,6 +1,6 @@
 <?php
 	include '../control/AdminControl.php';
-	session_start();
+	
 	if(!isset($_SESSION['uid']))
 	{
 		header("Location:Login.php");
@@ -23,7 +23,7 @@
 		</div>
 		<div class="cregister">
 			<h4>Clinic Register Form</h4><hr><br>
-				<form method="post" action=""id="cregister">
+				<form method="post" action="../control/AdminControl.php"id="cregister">
 					<table>
 						<tr>
 							<td>
