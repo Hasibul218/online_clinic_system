@@ -1,5 +1,10 @@
 <?php
 	include 'CSS/bootstrap.php';
+	session_start();
+	if(!isset($_SESSION['uid']))
+	{
+		header("Location:Login.php");
+	}
 ?>
 <html>
 	<head>
@@ -10,6 +15,7 @@
 		<link rel="stylesheet"type="text/css"href="CSS/setschedule.css">
 	</head>
 	<body>
+		<button class="button"onclick="window.location='../control/LogoutControl.php'">Logout</button>
 		<button type="button"name="home"class="button"onclick="window.location='DoctorHomePage.php'">Home Page</button>
 		<div class="div1">
 			<h2>Set Schedule</h2>

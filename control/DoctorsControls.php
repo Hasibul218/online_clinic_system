@@ -265,4 +265,61 @@ function inserttempdoctor()
 	execute($dquery); 
 	execute($uquery); 
 }
+
+function doctorsdata($uid)
+{
+	//data retrieve fron patient table
+	$dquery="SELECT * FROM doctors WHERE userid='$uid'";
+	$dresults=getdata($dquery);
+	return $dresults;
+}
+function doctoruser($uid)
+{
+	//data retrieve fron users table
+	$uquery="SELECT password FROM users WHERE userid='$uid'";
+	$uresults=getdata($uquery);
+	return $uresults;
+}
+
+if(isset($_POST['update']))
+{
+	//patient update own profile
+	$uid=($_GET['uid']);
+	$uname=$_POST['uname'];
+	$pass=$_POST['pass'];
+	$number=$_POST['number'];
+	$divission=$_POST['divission'];
+	$district=$_POST['district'];
+	$thana=$_POST['thana'];
+	$specialty=$_POST['specialty'];
+	$degree=$_POST['degree'];
+	$description=$_POST['description'];
+	updatedoctor();
+	echo "<script> alert('Successfully Updated');window.location='../view/DoctorProfile.php' </script>";
+}
+
+//Update
+//update into database query
+function updatedoctor()
+{
+	global $uid;
+	global $uname;
+	global $pass;
+	global $number;
+	global $divission;
+	global $district;
+	global $thana;
+	global $specialty;
+	global $degree;
+	global $description;
+
+	//update into patients table
+	$dquery="UPDATE `doctors` SET `username`='$uname',`phonenumber`='$number',`divission`='$divission',`district`='$district',`thana`='$thana',`specialty`='$specialty',`degree`='$degree',`description`='$description' WHERE `userid`='$uid'";
+	//update into users table
+	$uquery="UPDATE users SET password='$pass' WHERE userid='$uid'";
+
+	execute($dquery); 
+	execute($uquery); 
+}
+//update ends
 ?>
