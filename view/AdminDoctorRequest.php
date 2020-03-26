@@ -1,5 +1,10 @@
 <?php
 	include 'CSS/bootstrap.php';
+	session_start();
+	if(!isset($_SESSION['uid']))
+	{
+		header("Location:Login.php");
+	}
 ?>
 <html>
 	<head>
@@ -11,8 +16,8 @@
 	<body>
 		<div class="div1">
 			<label class="h2">Doctor Request List</label>
+			<button class="adminbtn"onclick="window.location='../control/LogoutControl.php'">Logout</button>
 			<button type="button"class="adminbtn"onclick="window.location='AdminHomePage.php'">Home</button>
-			<button type="button"class="adminbtn"oneclick="">Logout</button>
 		</div>
 		<div class="table">
 			<table class="table table-hover table-bordered ">

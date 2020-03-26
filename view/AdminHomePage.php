@@ -1,3 +1,10 @@
+<?php
+	session_start();
+	if(!isset($_SESSION['uid']))
+	{
+		header("Location:Login.php");
+	}
+?>
 <html>
 	<head>
 		<title>
@@ -9,10 +16,10 @@
 	<body>
 		<div class="head">
 			<label class="l1">Welcome Admin</label>
+			<button class="adminbtn"onclick="window.location='../control/LogoutControl.php'">Logout</button>
 			<button type="button"class="adminbtn"onclick="window.location='AdminHomePage.php'">Home</button>
-			<button type="button"class="adminbtn"oneclick="">Logout</button>
 		</div>
-		<label class="l2">Admin Name :</label>
+		<label class="l2">Admin userid : <?php echo $_SESSION['uid'] ?></label>
 		<div id="admin-navbar"style="text-align:center">
 			<div class="dropdown">
 				<button class="dropbtn">Doctor</button>
