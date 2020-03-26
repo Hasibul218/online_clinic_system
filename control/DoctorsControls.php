@@ -8,7 +8,7 @@
 	$err_pass="";
 	$pass="";
 	$err_gender="";
-	$gender;
+	$gender="";
 	$err_email="";
 	$email="";
 	$err_number="";
