@@ -22,6 +22,7 @@ include '../model/db_connect.php';
 	$err_bloodgroup="";
 	$bloodgroup="";
 	$has_err=false;
+	$click="";
 	
 	if(isset($_POST['submit']))
 	{
@@ -171,7 +172,6 @@ include '../model/db_connect.php';
 		//insert into database use function
 		if (!$has_err) 
 		{
-
 			//matching userid with database
 			$query="SELECT userid FROM users WHERE userid='$uid'";
 			$result=execute($query);
@@ -188,6 +188,19 @@ include '../model/db_connect.php';
 		}
 	}
 	//form validation ends
+if(isset($_POST['update']))
+{
+	//patient update own profile
+	$uid=($_GET['uid']);
+	$uname=$_POST['uname'];
+	$pass=$_POST['pass'];
+	$number=$_POST['number'];
+	$divission=$_POST['divission'];
+	$district=$_POST['district'];
+	$thana=$_POST['thana'];
+	updatepatient();
+	echo "<script> alert('Successfully Updated');window.location='../view/PatientProfile.php' </script>";
+}
 	
 //insert into database query
 function insertpatient()
@@ -213,14 +226,39 @@ function insertpatient()
 	execute($pquery); 
 	execute($uquery); 
 }
+//Update
+//insert into database query
+function updatepatient()
+{
+	global $uid;
+	global $uname;
+	global $pass;
+	global $number;
+	global $divission;
+	global $district;
+	global $thana;
+
+	//update into patients table
+	$pquery="UPDATE `patients` SET `username`='$uname',`phonenumber`='$number',`divission`='$divission',`district`='$district',`thana`='$thana' WHERE `userid`='$uid'";
+	//update into users table
+	$uquery="UPDATE users SET password='$pass' WHERE userid='$uid'";
+
+	execute($pquery); 
+	execute($uquery); 
+}
+//update ends
+
+
 function patientsdata($uid)
 {
+	//data retrieve fron patient table
 	$pquery="SELECT * FROM patients WHERE userid='$uid'";
 	$presults=getdata($pquery);
 	return $presults;
 }
 function patientuser($uid)
 {
+	//data retrieve fron users table
 	$uquery="SELECT password FROM users WHERE userid='$uid'";
 	$uresults=getdata($uquery);
 	return $uresults;
