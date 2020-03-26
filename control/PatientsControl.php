@@ -1,5 +1,5 @@
 <?php
-include '../model/db_connect.php';
+	include '../model/db_connect.php';
 	//form validation starts 
 	$err_uid="";
 	$uid="";
@@ -181,6 +181,7 @@ include '../model/db_connect.php';
 			}
 			else
 			{
+				//insert into patients & users table
 				insertpatient();
 				echo "<script> alert('Successfuly registered');window.location='Login.php' </script>";
 			}
