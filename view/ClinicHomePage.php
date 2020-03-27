@@ -1,3 +1,12 @@
+<?php
+	include '../control/ClinicControls.php';
+	session_start();
+	if(!isset($_SESSION['uid']))
+	{
+		header("Location:Login.php");
+	}
+
+?>
 <html>
 	<head>
 		<title>
@@ -7,24 +16,26 @@
 		<link rel="stylesheet"type="text/css"href="CSS/doctorhomepage.css">
 	</head>
 	<body>
-		<button class="button"onclick="window.location='Login.php'">Logout</button>
+		<button class="button"onclick="window.location='../control/LogoutControl.php'">Logout</button>
 		<div class="div1">
 			<h2>Home Page</h2>
 		</div>
-		<label class="l1">Welcome to :<label>
+		<label class="l1">User Id :<?php echo $_SESSION['uid'] ?><label>
 		<div class="sidebar">                <!--https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_sidenav_dropdown-->
 			<a href="ClinicSitDoctorPatient.php">Sit Doctor Patient</a>
+			<a href="ClinicSchedule.php">Schedule</a>
 		</div>
-		<form method="post"action="" class="setschedule">
+		<form method="post" class="setschedule">
 			<div class="setschedule-content">
 				<h5>Update Schedule</h5>
 				<div class="setschedule-list">
-					<input type="checkbox" name=""> 10am - 12pm<br><br>
-					<input type="checkbox" name=""> 10am - 12pm<br><br>
-					<input type="checkbox" name=""> 10am - 12pm<br><br>
-					<input type="checkbox" name=""> 10am - 12pm<br><br>
-					<input type="checkbox" name=""> 10am - 12pm<br><br>
-					<button type="button"name="update"class="prescrive"onclick="window.location=''">Schedule</button>
+					<input name="cid" value="<?php echo $_SESSION['uid']; ?>"readonly><br><br>
+					<input type="checkbox" name="s1" value="08am - 10am"> 08am - 10am<br><br>
+					<input type="checkbox" name="s2" value="02pm - 05pm"> 02pm - 05pm<br><br>
+					<input type="checkbox" name="s3"value="08pm - 10pm"> 08pm - 10pm<br><br>
+					<input type="date" name="date" required><br><br>
+					<label class="errcbox"><?php echo "Please select at least one time"; ?></label><br>
+					<button name="schedule" class="prescrive" >Schedule</button>
 				</div>
 			</div>
 		</form>
