@@ -184,4 +184,111 @@ function deleteclinic($cid)
 	execute($udelete);
 }
 //delete patient ends
+
+//data retrieve from tempdoctor table starts
+function tempdoctorsdata()
+{
+	$tdquery="SELECT * FROM tempdoctorrequests";
+	$tdresults=getdata($tdquery);
+	return $tdresults;
+}
+//data retrieve fron tempdoctor table ends
+
+//data retrieve from doctor table starts
+function doctorsdata()
+{
+	$dquery="SELECT * FROM doctors";
+	$dresults=getdata($dquery);
+	return $dresults;
+}
+//data retrieve fron doctor table ends
+
+//delete tempdoctors starts
+if(isset($_GET['tdeleteid']))
+{
+	$deleteid=$_GET['tdeleteid'];
+	deletetempdoctor($deleteid);
+	header("location:../view/AdminDoctorRequest.php");
+}
+function deletetempdoctor($deleteid)
+{
+	$tddelete="DELETE FROM `tempdoctorrequests` WHERE userid='$deleteid'";
+	$tudelete="DELETE FROM `tempusers` WHERE userid='$deleteid'";
+	execute($tddelete);
+	execute($tudelete);
+}
+//delete tempdoctors ends
+
+//delete doctors starts
+if(isset($_GET['ddeleteid']))
+{
+	$ddeleteid=$_GET['ddeleteid'];
+	deletedoctor($ddeleteid);
+	header("location:../view/AdminDoctorList.php");
+}
+function deletedoctor($id)
+{
+	$ddelete="DELETE FROM `doctors` WHERE userid='$id'";
+	$udelete="DELETE FROM `users` WHERE userid='$id'";
+	execute($ddelete);
+	execute($udelete);
+}
+//delete doctors ends
+
+//accept tempdoctors starts
+if(isset($_GET['acceptid']))
+{
+	$acceptid=$_GET['acceptid'];
+	accepttempdoctor($acceptid);
+	deletetempdoctor($acceptid);
+	header("location:../view/AdminDoctorList.php");
+}
+
+function accepttempdoctor($id)
+{
+	$dresutls=retrievetempdoctor($id);
+	$uresults=retrievetempusers($id);
+	foreach ($dresutls as $dresutl) {
+		$userid=$dresutl['userid'];
+		$username=$dresutl['username'];
+		$gender=$dresutl['gender'];
+		$email=$dresutl['email'];
+		$phonenumber=$dresutl['phonenumber'];
+		$dob=$dresutl['dob'];
+		$divission=$dresutl['divission'];
+		$district=$dresutl['district'];
+		$thana=$dresutl['thana'];
+		$specialty=$dresutl['specialty'];
+		$degree=$dresutl['degree'];
+		$bmdcregno=$dresutl['bmdcregno'];
+		$description=$dresutl['description'];
+	}
+	foreach ($uresults as $uresult) {
+		$userid=$uresult['userid'];
+		$password=$uresult['password'];
+		$status=$uresult['status'];
+	}
+	//insert into doctors table
+	$dquery="INSERT INTO doctors VALUES (NULL,'$userid','$username','$gender','$email','$phonenumber','$dob','$divission','$district','$thana','$specialty','$degree','$bmdcregno','$description')";
+	//insert into users table
+	$uquery="INSERT INTO users VALUES (NULL,'$userid','$password','$status')";
+
+	execute($dquery); 
+	execute($uquery); 
+
+}
+
+function retrievetempdoctor($id)
+{
+	$tdaccept="SELECT * FROM `tempdoctorrequests` WHERE userid='$id'";
+	$tempdoc=getdata($tdaccept);
+	return $tempdoc;
+}
+function retrievetempusers($id)
+{
+	$tuaccept="SELECT * FROM `tempusers` WHERE userid='$id'";
+	$tempusers=getdata($tuaccept);
+	return $tempusers;
+}
+//accept tempdoctors ends
 ?>

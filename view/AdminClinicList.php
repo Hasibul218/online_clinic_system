@@ -18,6 +18,7 @@
 		$s="";
 	}
 	$count=count($clinics);//count clinic
+	$id=0;
 ?>
 <html>
 	<head>
@@ -62,9 +63,10 @@
 			      <th scope="col">Actions</th>
 			    </tr>
 			  </thead>
-				<?php foreach ($clinics as $clinic) { ?>
+				<?php foreach ($clinics as $clinic) {$id++; ?>
 					<tbody>
-						<th><?php echo $clinic["id"]; ?></th>
+						<th><?php echo $id; ?></th>
+						<!--<th><?php //echo $clinic["id"]; ?></th>-->
 						<td><?php echo $clinic["cid"]; ?></td>
 						<td><?php echo $clinic["cname"]; ?></td>
 						<td><?php echo $clinic["phonenumber"]; ?></td>

@@ -1,10 +1,14 @@
 <?php
+	include '../control/AdminControl.php';
 	include 'CSS/bootstrap.php';
 	session_start();
 	if(!isset($_SESSION['uid']))
 	{
 		header("Location:Login.php");
 	}
+
+	$tempdoctors=tempdoctorsdata();
+	$id=0;
 ?>
 <html>
 	<head>
@@ -21,88 +25,45 @@
 		</div>
 		<div class="table">
 			<table class="table table-hover table-bordered ">
-			  <thead>
-			    <tr class="thead-dark">
-			      <th scope="col">SI#</th>
-			      <th scope="col">Userid</th>
-			      <th scope="col">Name</th>
-			      <th scope="col">Gender</th>
-			      <th scope="col">Phone no.</th>
-			      <th scope="col">Email</th>
-			      <th scope="col">DOB</th>
-			      <th scope="col">Gender</th>
-			      <th scope="col">Divission</th>
-			      <th scope="col">District</th>
-			      <th scope="col">Thana</th>
-			      <th scope="col">Specialty</th>
-			      <th scope="col">Degree</th>
-			      <th scope="col">BMDC no.</th>
-			      <th scope="col">Actions</th>
+				<thead>
+				    <tr class="thead-dark">
+						<th scope="col">SI#</th>
+						<th scope="col">Userid</th>
+						<th scope="col">Name</th>
+						<th scope="col">Email</th>
+						<th scope="col">Phone no.</th>
+						<th scope="col">Divission</th>
+						<th scope="col">District</th>
+						<th scope="col">Thana</th>
+						<th scope="col">Specialty</th>
+						<th scope="col">Degree</th>
+						<th scope="col">BMDC no.</th>
+						<th scope="col">Actions</th>
+				    </tr>
+				</thead>
+				<?php foreach ($tempdoctors as $tempdoctor) { $id++;?>
+					<tbody>
+					    <tr>
+					    	<th><?php echo $id; ?></th>
+					    	<!--<th><?php //echo $tempdoctor["id"]; ?></th>-->
+							<td><?php echo $tempdoctor["userid"]; ?></td>
+							<td><?php echo $tempdoctor["username"]; ?></td>
+							<td><?php echo $tempdoctor["email"]; ?></td>
+							<td><?php echo $tempdoctor["phonenumber"]; ?></td>
+							<td><?php echo $tempdoctor["divission"]; ?></td>
+							<td><?php echo $tempdoctor["district"]; ?></td>
+							<td><?php echo $tempdoctor["thana"]; ?></td>
+							<td><?php echo $tempdoctor["specialty"]; ?></td>
+							<td><?php echo $tempdoctor["degree"]; ?></td>
+							<td><?php echo $tempdoctor["bmdcregno"]; ?></td>
+							<td>
+								<a href="../control/AdminControl.php?tdeleteid=<?php echo $tempdoctor['userid'] ?>" class="btn btn-danger float-right"style="width: 70px" onclick="return confirm ('Are you sure to delete?');">Delete</a>
 
-			    </tr>
-			  </thead>
-			  <tbody>
-			    <tr>
-			      <th scope="row">1</th>
-			      <td>Jacob</td>
-			      <td>Thornton</td>
-			      <td>@fat</td>
-			      <td>Jacob</td>
-			      <td>Thornton</td>
-			      <td>@fat</td>
-			      <td>Jacob</td>
-			      <td>Thorntonnjbvbhvvvhv</td>
-			      <td>@fat</td>
-			      <td>Jacob</td>
-			      <td>Thornton</td>
-			      <td>@fat</td>
-			      <td>Jacob</td>
-			      <td>
-				      <button type="button" class="btn btn-danger float-right"style="width: 70px">Delete</button>
-				      <button type="button" class="btn btn-primary float-right"style="width: 70px">Accept</button>
-			      </td>
-			    </tr>
-			    <tr>
-			      <th scope="row">2</th>
-			      <td>Jacob</td>
-			      <td>Thornton</td>
-			      <td>@fat</td>
-			      <td>Jacob</td>
-			      <td>Thornton</td>
-			      <td>@fat</td>
-			      <td>Jacob</td>
-			      <td>Thornton</td>
-			      <td>@fat</td>
-			      <td>Jacob</td>
-			      <td>Thornton</td>
-			      <td>@fat</td>
-			      <td>@fat</td>
-			      <td>
-				      <button type="button" class="btn btn-danger float-right"style="width: 70px">Delete</button>
-				      <button type="button" class="btn btn-primary float-right"style="width: 70px">Accept</button>
-			      </td>
-			    </tr>
-			    <tr>
-			      <th scope="row">3</th>
-			      <td>Jacob</td>
-			      <td>Thornton</td>
-			      <td>@fat</td>
-			      <td>Jacob</td>
-			      <td>Thornton</td>
-			      <td>@fat</td>
-			      <td>Jacob</td>
-			      <td>Thornton</td>
-			      <td>@fat</td>
-			      <td>Jacob</td>
-			      <td>Thornton</td>
-			      <td>@fat</td>
-			      <td>Jacob</td>
-			      <td>
-				      <button type="button" class="btn btn-danger float-right"style="width: 70px">Delete</button>
-				      <button type="button" class="btn btn-primary float-right"style="width: 70px">Accept</button>
-			      </td>
-			    </tr>
-			  </tbody>
+								<a href="../control/AdminControl.php?acceptid=<?php echo $tempdoctor['userid'] ?>" class="btn btn-primary float-right"style="width: 70px" onclick="return confirm ('Are you sure to accept?');">Accept</a>
+							</td>
+					    </tr>
+					</tbody>
+				<?php } ?>
 			</table>
 		</div>
 	</body>

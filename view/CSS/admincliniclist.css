@@ -34,9 +34,8 @@ font-size: 35px;
 }
 .table
 {
-    width: 98%;
-    margin: 49px 0px 0px 13px;
-    text-align: center;
+    width: 100%;
+    margin: 49px 0px 0px 0px;
 }
 .search
 {
