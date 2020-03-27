@@ -44,3 +44,12 @@ font-size: 35px;
     float: left;
     margin: 58px 0px 0px 404px;
 }
+.totalclinic
+{
+    float: left;
+    margin: -87px 0px 0px -239px;
+    font-size: 16px;
+    font-family: monospace;
+    color: red;
+    text-align: center;
+}

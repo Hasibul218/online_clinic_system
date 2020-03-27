@@ -1,6 +1,6 @@
 <?php
 	include '../control/AdminControl.php';
-	
+	session_start();
 	if(!isset($_SESSION['uid']))
 	{
 		header("Location:Login.php");
