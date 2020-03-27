@@ -61,4 +61,18 @@ function clinicschedule($cid)
 	return $csresult;
 }
 //data retrieve from clinicsetschedule
+
+//delete clinic schedule
+if (isset($_GET['sdeleteid'])) {
+	$sid=$_GET['sdeleteid'];
+	scheduledelete($sid);
+	header ('Location:../view/ClinicSchedule.php');
+
+}
+function scheduledelete($id)
+{
+	$sdelete="DELETE FROM `clinicsetschedule` WHERE id='$id'";
+	execute($sdelete);
+}
+//delete clinic schedule
 ?>

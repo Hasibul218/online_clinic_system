@@ -39,13 +39,13 @@
 					<tbody>
 					    <tr>
 					    	<th><?php echo $id; ?></th>
-					    	<!--<th><?php //echo $doctor["id"]; ?></th>-->
+					    	<!--<th><?php //echo $schedule["id"]; ?></th>-->
 							<td><?php echo $schedule["schedule1"]; ?></td>
 							<td><?php echo $schedule["schedule2"]; ?></td>
 							<td><?php echo $schedule["schedule3"]; ?></td>
 							<td><?php echo $schedule["date"]; ?></td>
 							<td>
-								<a href="../control/ClinicControls.php?sdeleteid=<?php echo $schedule['cid'] ?>" class="btn btn-danger float-right"style="width: 70px" onclick="return confirm ('Are you sure to delete?');">Delete</a>
+								<a href="../control/ClinicControls.php?sdeleteid=<?php echo $schedule['id'] ?>" class="btn btn-danger float-right"style="width: 70px" onclick="return confirm ('Are you sure to delete?');">Delete</a>
 							</td>
 					    </tr>
 					</tbody>
