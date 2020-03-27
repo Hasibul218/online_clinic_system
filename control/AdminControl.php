@@ -151,14 +151,24 @@ function insertclinic()
 	execute($cquery); 
 	execute($uquery); 
 }
+//search from database starts
+function search($cname)
+{
+	$squery="SELECT * FROM `clinics` WHERE cname LIKE '$cname%'";
+	$sresults=getdata($squery);
+	return $sresults;
+}
+//search from database ends
+//data retrieve fron clinics table starts
 function clinicsdata()
 {
-	//data retrieve fron clinics table
 	$cquery="SELECT * FROM clinics";
 	$cresults=getdata($cquery);
 	return $cresults;
 }
+//data retrieve fron clinics table ends
 
+//delete patient starts
 if(isset($_GET['cid']))
 {
 	$cid=$_GET['cid'];
@@ -173,4 +183,5 @@ function deleteclinic($cid)
 	execute($cdelete);
 	execute($udelete);
 }
+//delete patient ends
 ?>

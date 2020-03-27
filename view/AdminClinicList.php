@@ -7,7 +7,16 @@
 		header("Location:Login.php");
 	}
 	//data from clinics table
-	$clinics=clinicsdata();
+	if(isset($_POST['search']))
+	{
+		$s=$_POST['search'];
+		$clinics=search($s);
+	}
+	else
+	{
+		$clinics=clinicsdata();
+		$s="";
+	}
 	$count=count($clinics);//count clinic
 ?>
 <html>
@@ -25,18 +34,20 @@
 			<button type="button"class="adminbtn"onclick="window.location='AdminHomePage.php'">Home</button>
 		</div>
 		<!--search bar & table ends-->
-		<div class="search">
-			<div class="input-group mb-3">
-				<div class="input-group-prepend">
-					<button class="btn btn-outline-primary" type="button">Search</button>
+			<div class="search">
+			<form method="POST" action="">
+				<div class="input-group mb-3">
+					<div class="input-group-prepend">
+						<button class="btn btn-outline-primary" type="button" name="search"><i class="fa fa-search"></i></button>
+					</div>
+					<input type="text" class="form-control" name="search" value="" placeholder="search with name" >
 				</div>
-				<input type="text" class="form-control" placeholder="search with name" >
+			</form>
+				<div class="totalclinic">
+					<label>Total Clinic</label>
+					<input class="form-control" type="text" value="<?php echo $count ?>" readonly>
+				</div>
 			</div>
-			<div class="totalclinic">
-				<label>Total Clinic</label>
-				<input class="form-control" type="text" value="<?php echo $count ?>" readonly>
-			</div>
-		</div>
 		<div class="table">
 			<table class="table table-hover table-bordered ">
 			  <thead>
