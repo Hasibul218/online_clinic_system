@@ -203,6 +203,15 @@ function doctorsdata()
 }
 //data retrieve fron doctor table ends
 
+//data retrieve from patients table starts
+function patientsdata()
+{
+	$pquery="SELECT * FROM patients";
+	$presults=getdata($pquery);
+	return $presults;
+}
+//data retrieve fron patients table ends
+
 //delete tempdoctors starts
 if(isset($_GET['tdeleteid']))
 {
@@ -218,6 +227,22 @@ function deletetempdoctor($deleteid)
 	execute($tudelete);
 }
 //delete tempdoctors ends
+
+//delete patients starts
+if(isset($_GET['pdeleteid']))
+{
+	$pdeleteid=$_GET['pdeleteid'];
+	deletepatient($pdeleteid);
+	header("location:../view/AdminPatientList.php");
+}
+function deletepatient($id)
+{
+	$pddelete="DELETE FROM `patients` WHERE userid='$id'";
+	$udelete="DELETE FROM `users` WHERE userid='$id'";
+	execute($pddelete);
+	execute($udelete);
+}
+//delete patients ends
 
 //delete doctors starts
 if(isset($_GET['ddeleteid']))
