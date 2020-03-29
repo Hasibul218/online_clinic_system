@@ -1,8 +1,6 @@
 <?php
 	require_once ('../model/db_connect.php');
 	session_start();
-
-
 	if(isset($_POST['login']))
 	{
 		if(empty($_POST['uid']) || empty($_POST['pass']))
@@ -37,6 +35,7 @@
 						elseif($status==3)
 						{
 							$_SESSION['uid'] = $uid;
+							$_SESSION['last_time']=time();
 							header("location:../view/PatientHomePage.php");
 							/*header("location:../view/Login.php?pass=<?php echo $pass?>");*/
 						}
