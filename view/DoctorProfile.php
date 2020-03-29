@@ -1,13 +1,26 @@
 <?php
-include '../control/DoctorsControls.php';
+	include '../control/DoctorsControls.php';
+	//session starts
 	session_start();
-	if(!isset($_SESSION['uid']))
+	if(isset($_SESSION['did']))
+	{
+		if (time()-$_SESSION['last_time']>1800) //30 min inactive thakle logout automatic
+		{
+			header("Location:../control/LogoutControl.php");
+		}
+		else
+		{
+			$_SESSION['last_time']=time();
+		}
+	}
+	else
 	{
 		header("Location:Login.php");
 	}
+	//session ends
 
-	$doctors=doctorsdata($_SESSION['uid']);
-	$users=doctoruser($_SESSION['uid']);
+	$doctors=doctorsdata($_SESSION['did']);
+	$users=doctoruser($_SESSION['did']);
 
 	//data retrieve fron users table
 	foreach ($users as $user) {
