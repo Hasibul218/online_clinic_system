@@ -1,7 +1,7 @@
 <?php
 	//session starts
 	session_start();
-	if(isset($_SESSION['uid']))
+	if(isset($_SESSION['pid']))
 	{
 		if (time()-$_SESSION['last_time']>1800) //30 min inactive thakle logout automatic
 		{
