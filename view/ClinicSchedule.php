@@ -1,13 +1,26 @@
 <?php
 	include 'CSS/bootstrap.php';
 	include '../control/ClinicControls.php';
+	//session starts
 	session_start();
-	if(!isset($_SESSION['uid']))
+	if(isset($_SESSION['cid']))
+	{
+		if (time()-$_SESSION['last_time']>1800) //30 min inactive thakle logout automatic
+		{
+			header("Location:../control/LogoutControl.php");
+		}
+		else
+		{
+			$_SESSION['last_time']=time();
+		}
+	}
+	else
 	{
 		header("Location:Login.php");
 	}
+	//session ends
 	$id=0;
-	$schedules=clinicschedule($_SESSION['uid']);
+	$schedules=clinicschedule($_SESSION['cid']);
 ?>
 <!DOCTYPE html>
 <html>

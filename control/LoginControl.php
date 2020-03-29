@@ -30,19 +30,21 @@
 						}
 						elseif($status==2)
 						{
-							$_SESSION['uid'] = $uid;
+							$_SESSION['did'] = $uid;
+							$_SESSION['last_time']=time();
 							header("location:../view/DoctorHomePage.php");
 						}
 						elseif($status==3)
 						{
-							$_SESSION['uid'] = $uid;
+							$_SESSION['pid'] = $uid;
 							$_SESSION['last_time']=time();
 							header("location:../view/PatientHomePage.php");
 							/*header("location:../view/Login.php?pass=<?php echo $pass?>");*/
 						}
 						else
 						{
-							$_SESSION['uid'] = $uid;
+							$_SESSION['cid'] = $uid;
+							$_SESSION['last_time']=time();
 							header("location:../view/ClinicHomePage.php");
 						}
 					}

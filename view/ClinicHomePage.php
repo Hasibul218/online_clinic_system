@@ -1,10 +1,23 @@
 <?php
 	include '../control/ClinicControls.php';
+	//session starts
 	session_start();
-	if(!isset($_SESSION['uid']))
+	if(isset($_SESSION['cid']))
+	{
+		if (time()-$_SESSION['last_time']>1800) //30 min inactive thakle logout automatic
+		{
+			header("Location:../control/LogoutControl.php");
+		}
+		else
+		{
+			$_SESSION['last_time']=time();
+		}
+	}
+	else
 	{
 		header("Location:Login.php");
 	}
+	//session ends
 
 ?>
 <html>
@@ -20,7 +33,7 @@
 		<div class="div1">
 			<h2>Home Page</h2>
 		</div>
-		<label class="l1">User Id :<?php echo $_SESSION['uid'] ?><label>
+		<label class="l1">User Id :<?php echo $_SESSION['cid'] ?><label>
 		<div class="sidebar">                <!--https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_sidenav_dropdown-->
 			<a href="ClinicSitDoctorPatient.php">Sit Doctor Patient</a>
 			<a href="ClinicSchedule.php">Schedule</a>
@@ -29,7 +42,7 @@
 			<div class="setschedule-content">
 				<h5>Update Schedule</h5>
 				<div class="setschedule-list">
-					<input name="cid" value="<?php echo $_SESSION['uid']; ?>"readonly><br><br>
+					<input name="cid" value="<?php echo $_SESSION['cid']; ?>"readonly><br><br>
 					<input type="checkbox" name="s1" value="08am - 10am"> 08am - 10am<br><br>
 					<input type="checkbox" name="s2" value="02pm - 05pm"> 02pm - 05pm<br><br>
 					<input type="checkbox" name="s3"value="08pm - 10pm"> 08pm - 10pm<br><br>
