@@ -1,11 +1,24 @@
 <?php
 	include '../control/AdminControl.php';
 	include 'CSS/bootstrap.php';
+	//session starts
 	session_start();
-	if(!isset($_SESSION['uid']))
+	if(isset($_SESSION['aid']))
+	{
+		if (time()-$_SESSION['last_time']>1800) //30 min inactive thakle logout automatic
+		{
+			header("Location:../control/LogoutControl.php");
+		}
+		else
+		{
+			$_SESSION['last_time']=time();
+		}
+	}
+	else
 	{
 		header("Location:Login.php");
 	}
+	//session ends
 	$id=0;
 	$patients=patientsdata();
 	$count=count($patients);//count patients

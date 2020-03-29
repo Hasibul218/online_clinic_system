@@ -1,9 +1,22 @@
 <?php
+	//session starts
 	session_start();
-	if(!isset($_SESSION['uid']))
+	if(isset($_SESSION['aid']))
+	{
+		if (time()-$_SESSION['last_time']>1800) //30 min inactive thakle logout automatic
+		{
+			header("Location:../control/LogoutControl.php");
+		}
+		else
+		{
+			$_SESSION['last_time']=time();
+		}
+	}
+	else
 	{
 		header("Location:Login.php");
 	}
+	//session ends
 ?>
 <html>
 	<head>
@@ -19,7 +32,7 @@
 			<button class="adminbtn"onclick="window.location='../control/LogoutControl.php'">Logout</button>
 			<button type="button"class="adminbtn"onclick="window.location='AdminHomePage.php'">Home</button>
 		</div>
-		<label class="l2">Admin userid : <?php echo $_SESSION['uid'] ?></label>
+		<label class="l2">Admin userid : <?php echo $_SESSION['aid'] ?></label>
 		<div id="admin-navbar"style="text-align:center">
 			<div class="dropdown">
 				<button class="dropbtn">Doctor</button>

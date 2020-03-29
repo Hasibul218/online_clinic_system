@@ -24,7 +24,8 @@
 					{
 						if ($status==1) 
 						{
-							$_SESSION['uid'] = $uid;
+							$_SESSION['aid'] = $uid;
+							$_SESSION['last_time']=time();
 							header("location:../view/AdminHomePage.php");
 						}
 						elseif($status==2)
