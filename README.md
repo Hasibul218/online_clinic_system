@@ -1,0 +1,2 @@
+# Online Clinic System
+The idea of our project is Online Clinic System. Presently, patients are making appointment manually which is a time consuming process. A patient has to go to the clinic or hospital or placing a phone call in order to make appointment. Through our project, patients can book their appointment by themselves. Doctor can also see the patient history through patient id. Admin approves the doctor’s registration. So, in this system the communication between the doctor and patient would be more effective.
