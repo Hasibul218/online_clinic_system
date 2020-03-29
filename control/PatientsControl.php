@@ -174,10 +174,16 @@
 		{
 			//matching userid with database
 			$query="SELECT userid FROM users WHERE userid='$uid'";
+			$query1="SELECT userid FROM tempusers WHERE userid='$uid'";
 			$result=execute($query);
+			$result1=execute($query1);
 			if(mysqli_num_rows($result)>0)
 			{
 				$err_uid= "user id not available";
+			}
+			elseif(mysqli_num_rows($result1)>0)
+			{
+				$err_uid= "*user id not available";
 			}
 			else
 			{
