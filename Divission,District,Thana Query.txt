@@ -1,0 +1,79 @@
+========================Insert Divission Query==================================
+
+INSERT INTO `divission`(`id`, `divission`) VALUES (NULL,'Dhaka');
+INSERT INTO `divission`(`id`, `divission`) VALUES (NULL,'Khulna');
+INSERT INTO `divission`(`id`, `divission`) VALUES (NULL,'Chittagong');
+INSERT INTO `divission`(`id`, `divission`) VALUES (NULL,'Barisal');
+INSERT INTO `divission`(`id`, `divission`) VALUES (NULL,'Mymensingh');
+INSERT INTO `divission`(`id`, `divission`) VALUES (NULL,'Rajshahi');
+INSERT INTO `divission`(`id`, `divission`) VALUES (NULL,'Rangpur');
+INSERT INTO `divission`(`id`, `divission`) VALUES (NULL,'Sylhet');
+
+========================Insert District Query==================================
+
+INSERT INTO `district`(`id`, `district`, `divission_id`) VALUES (NULL,'Dhaka',1);
+INSERT INTO `district`(`id`, `district`, `divission_id`) VALUES (NULL,'Ghazipur',1);
+INSERT INTO `district`(`id`, `district`, `divission_id`) VALUES (NULL,'Kishoreganj',1);
+INSERT INTO `district`(`id`, `district`, `divission_id`) VALUES (NULL,'Manikganj',1);
+INSERT INTO `district`(`id`, `district`, `divission_id`) VALUES (NULL,'Narsingdi',1);
+INSERT INTO `district`(`id`, `district`, `divission_id`) VALUES (NULL,'Faridpur',1);
+
+INSERT INTO `district`(`id`, `district`, `divission_id`) VALUES (NULL,'Khulna',2);
+INSERT INTO `district`(`id`, `district`, `divission_id`) VALUES (NULL,'Kushtia',2);
+INSERT INTO `district`(`id`, `district`, `divission_id`) VALUES (NULL,'Magura',2);
+INSERT INTO `district`(`id`, `district`, `divission_id`) VALUES (NULL,'Jhenaidah',2);
+INSERT INTO `district`(`id`, `district`, `divission_id`) VALUES (NULL,'Bagerhat',2);
+INSERT INTO `district`(`id`, `district`, `divission_id`) VALUES (NULL,'Satkhira',2);
+
+
+INSERT INTO `district`(`id`, `district`, `divission_id`) VALUES (NULL,'Chittagong',3);
+INSERT INTO `district`(`id`, `district`, `divission_id`) VALUES (NULL,'Feni',3);
+INSERT INTO `district`(`id`, `district`, `divission_id`) VALUES (NULL,'Rangamati',3);
+INSERT INTO `district`(`id`, `district`, `divission_id`) VALUES (NULL,'Noakhali',3);
+INSERT INTO `district`(`id`, `district`, `divission_id`) VALUES (NULL,'Bandarban',3);
+INSERT INTO `district`(`id`, `district`, `divission_id`) VALUES (NULL,'Khagrachhari',3);
+
+
+INSERT INTO `district`(`id`, `district`, `divission_id`) VALUES (NULL,'Barguna ',4);
+INSERT INTO `district`(`id`, `district`, `divission_id`) VALUES (NULL,'Patuakhali',4);
+INSERT INTO `district`(`id`, `district`, `divission_id`) VALUES (NULL,'Madaripur',4);
+INSERT INTO `district`(`id`, `district`, `divission_id`) VALUES (NULL,'Bhola',4);
+INSERT INTO `district`(`id`, `district`, `divission_id`) VALUES (NULL,'Pirojpur',4);
+INSERT INTO `district`(`id`, `district`, `divission_id`) VALUES (NULL,'Shariatpur',4);
+
+INSERT INTO `district`(`id`, `district`, `divission_id`) VALUES (NULL,'Mymensingh ',5);
+INSERT INTO `district`(`id`, `district`, `divission_id`) VALUES (NULL,'Netrokona',5);
+INSERT INTO `district`(`id`, `district`, `divission_id`) VALUES (NULL,'Jamalpur',5);
+INSERT INTO `district`(`id`, `district`, `divission_id`) VALUES (NULL,'Sherpur',5);
+
+INSERT INTO `district`(`id`, `district`, `divission_id`) VALUES (NULL,'Bogura',6);
+INSERT INTO `district`(`id`, `district`, `divission_id`) VALUES (NULL,'Chapainawabganj',6);
+INSERT INTO `district`(`id`, `district`, `divission_id`) VALUES (NULL,'Joypurhat',6);
+INSERT INTO `district`(`id`, `district`, `divission_id`) VALUES (NULL,'Naogaon',6);
+
+INSERT INTO `district`(`id`, `district`, `divission_id`) VALUES (NULL,'Dinajpur',7);
+INSERT INTO `district`(`id`, `district`, `divission_id`) VALUES (NULL,'Kurigram',7);
+INSERT INTO `district`(`id`, `district`, `divission_id`) VALUES (NULL,'Rangpur',7);
+INSERT INTO `district`(`id`, `district`, `divission_id`) VALUES (NULL,'Nilphamari',7);
+
+
+INSERT INTO `district`(`id`, `district`, `divission_id`) VALUES (NULL,'Habiganj',8);
+INSERT INTO `district`(`id`, `district`, `divission_id`) VALUES (NULL,'Moulvibazar',8);
+INSERT INTO `district`(`id`, `district`, `divission_id`) VALUES (NULL,'Sunamganj',8);
+INSERT INTO `district`(`id`, `district`, `divission_id`) VALUES (NULL,'Sylhet',8);
+
+========================Insert Thana Query==================================
+
+INSERT INTO `thana`(`id`, `thana`, `district_id`) VALUES (NULL,'Dhamrai',1);
+INSERT INTO `thana`(`id`, `thana`, `district_id`) VALUES (NULL,'Kaliakair ',2);
+INSERT INTO `thana`(`id`, `thana`, `district_id`) VALUES (NULL,'Hossainpur ',3);
+INSERT INTO `thana`(`id`, `thana`, `district_id`) VALUES (NULL,'Manikganj',4);
+INSERT INTO `thana`(`id`, `thana`, `district_id`) VALUES (NULL,'Narsingdi Sadar',5);
+INSERT INTO `thana`(`id`, `thana`, `district_id`) VALUES (NULL,'Faridpur Sadar',6);
+
+INSERT INTO `thana`(`id`, `thana`, `district_id`) VALUES (NULL,'Terakhada',7);
+INSERT INTO `thana`(`id`, `thana`, `district_id`) VALUES (NULL,'Doulatpur ',8);
+INSERT INTO `thana`(`id`, `thana`, `district_id`) VALUES (NULL,'Magura Sadar',9);
+INSERT INTO `thana`(`id`, `thana`, `district_id`) VALUES (NULL,'Jhenaidah Sadar',10);
+INSERT INTO `thana`(`id`, `thana`, `district_id`) VALUES (NULL,'Batiaghatar',11);
+INSERT INTO `thana`(`id`, `thana`, `district_id`) VALUES (NULL,'Assasuni',12);
