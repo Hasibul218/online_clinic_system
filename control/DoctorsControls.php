@@ -322,4 +322,11 @@ function updatedoctor()
 	execute($uquery); 
 }
 //update ends
+
+function divission()
+	{
+		$query="SELECT * from divission";
+		$results=getdata($query);
+		return $results;
+	}
 ?>
