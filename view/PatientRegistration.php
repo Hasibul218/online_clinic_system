@@ -1,61 +1,11 @@
 <?php
 	include '../control/PatientsControl.php';
-	$divissions=divission();
 ?>
 <html>
 	<head>
 		<title>Patient Registration Form</title>
 		<link rel="stylesheet"type="text/css"href="CSS/doctorform.css">
 		<link rel="stylesheet"type="text/css"href="CSS/homepage.css">
-		<!--division district thana-->
-		<script>
-			function divid()
-			{
-				http=new XMLHttpRequest();
-				var search_word=document.getElementById("divission").value;
-				http.onreadystatechange=function()
-				{
-					if (http.readyState==4 && http.status==200) 
-					{
-						//alert(http.responseText);
-						//alert(document.getElementById("divission").value);
-						document.getElementById("district").innerHTML=http.responseText;
-
-						
-					}
-					else if (http.status==404) 
-					{
-						alert("not found");
-					}
-				}
-				http.open("GET","../control/District.php?sk="+search_word,true);
-				http.send();
-			}
-
-			function disid()
-			{
-				http=new XMLHttpRequest();
-				var search_word=document.getElementById("district").value;
-				http.onreadystatechange=function()
-				{
-					if (http.readyState==4 && http.status==200) 
-					{
-						//alert(http.responseText);
-						//alert(document.getElementById("divission").value);
-						document.getElementById("thana").innerHTML=http.responseText;
-
-						
-					}
-					else if (http.status==404) 
-					{
-						alert("not found");
-					}
-				}
-				http.open("GET","../control/Thana.php?sk="+search_word,true);
-				http.send();
-			}
-		</script>
-		<!--division district thana-->
 	</head>
 	<body>
 		<div class="btngrp1">
@@ -177,16 +127,29 @@
 							<label>Address</label><br><br>
 						</td>
 						<td>
-							<select name="divission" class="address" id="divission" onchange="divid()">
-								<?php foreach ($divissions as $value) { ?>
-								<option value="<?php echo $value['id'] ?>" ><?php echo $value['divission'] ?></option>
-								<?php } ?>
+							<select name="divission"id="address">
+								<option selected disabled>Divission</option>
+								<option value="Rajshahi">Rajshahi</option>
+								<option value="Dhaka" >Dhaka</option>
+								<option value="Borisal" >Borisal</option>
+								<option value="Khulna">Khulna</option>
+								<option value="Chittagong">Chittagong</option>
 							</select>
-							<select name="district"class="address" id="district" onchange="disid()">
+							<select name="district"id="address">
 								<option selected disabled>District</option>
+								<option value="Rajshahi">Rajshahi</option>
+								<option value="Dhaka" >Dhaka</option>
+								<option value="Borisal" >Borisal</option>
+								<option value="Khulna">Khulna</option>
+								<option value="Chittagong">Chittagong</option>
 							</select>
-							<select name="thana"id="thana" class="address">
+							<select name="thana"id="address">
 								<option selected disabled>Thana</option>
+								<option value="Rajshahi">Rajshahi</option>
+								<option value="Dhaka" >Dhaka</option>
+								<option value="Borisal" >Borisal</option>
+								<option value="Khulna">Khulna</option>
+								<option value="Chittagong">Chittagong</option>
 							</select>
 							<label class="errmgs"><?php echo $err_address?></label>
 							<br><br>

@@ -316,11 +316,4 @@ function retrievetempusers($id)
 	return $tempusers;
 }
 //accept tempdoctors ends
-
-function divission()
-	{
-		$query="SELECT * from divission";
-		$results=getdata($query);
-		return $results;
-	}
 ?>
