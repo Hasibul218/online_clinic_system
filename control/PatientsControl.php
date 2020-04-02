@@ -270,5 +270,11 @@ function patientuser($uid)
 	$uresults=getdata($uquery);
 	return $uresults;
 }
+function divission()
+{
+	$query="SELECT * from divission";
+	$results=getdata($query);
+	return $results;
+}
 
 ?>

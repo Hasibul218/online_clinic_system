@@ -18,7 +18,7 @@
 		header("Location:Login.php");
 	}
 	//session ends
-
+	$divissions=divission();
 	$doctors=doctorsdata($_SESSION['did']);
 	$users=doctoruser($_SESSION['did']);
 
@@ -51,6 +51,52 @@
 		</title>
 		<link rel="stylesheet"type="text/css"href="CSS/doctorcss.css">
 		<link rel="stylesheet"type="text/css"href="CSS/doctorform.css">
+		<!--divission district thana-->
+		<script>
+		function divid()
+		{
+			http=new XMLHttpRequest();
+			var search_word=document.getElementById("divission").value;
+			http.onreadystatechange=function()
+			{
+				if (http.readyState==4 && http.status==200) 
+				{
+					//alert(http.responseText);
+					//alert(document.getElementById("divission").value);
+					document.getElementById("district").innerHTML=http.responseText;
+
+					
+				}
+				else if (http.status==404) 
+				{
+					alert("not found");
+				}
+			}
+			http.open("GET","../control/District.php?sk="+search_word,true);
+			http.send();
+		}
+		function disid()
+		{
+			http=new XMLHttpRequest();
+			var search_word=document.getElementById("district").value;
+			http.onreadystatechange=function()
+			{
+				if (http.readyState==4 && http.status==200) 
+				{
+					//alert(http.responseText);
+					//alert(document.getElementById("district").value);
+					document.getElementById("thana").innerHTML=http.responseText;
+				}
+				else if (http.status==404) 
+				{
+					alert("not found");
+				}
+			}
+			http.open("GET","../control/Thana.php?tk="+search_word,true);
+			http.send();
+		}
+	</script>
+	<!--divission district thana-->
 	</head>
 	<button class="button"onclick="window.location='../control/LogoutControl.php'">Logout</button>
 	<button type="button"name="home"class="button"onclick="window.location='DoctorHomePage.php'">Home Page</button>
@@ -130,29 +176,17 @@
 							<label>Address</label><br><br>
 						</td>
 						<td>
-							<select name="divission"id="address"required>
+							<select name="divission" id="divission" class="address" onchange="divid()" required>
 								<option selected value="<?php echo $divission ?>"><?php echo $divission ?></option>
-								<option value="Rajshahi">Rajshahi</option>
-								<option value="Dhaka" >Dhaka</option>
-								<option value="Borisal" >Borisal</option>
-								<option value="Khulna">Khulna</option>
-								<option value="Chittagong">Chittagong</option>
+								<?php foreach ($divissions as $value) { ?>
+									<option value="<?php echo $value['divission'] ?>" ><?php echo $value['divission'] ?></option>
+								<?php } ?>
 							</select>
-							<select name="district"id="address"required>
+							<select name="district" id="district" class="address" onchange="disid()" required>
 								<option selected value="<?php echo $district ?>"><?php echo $district ?></option>
-								<option value="Rajshahi">Rajshahi</option>
-								<option value="Dhaka" >Dhaka</option>
-								<option value="Borisal" >Borisal</option>
-								<option value="Khulna">Khulna</option>
-								<option value="Chittagong">Chittagong</option>
 							</select>
-							<select name="thana"id="address"required>
+							<select name="thana" id="thana" class="address" required>
 								<option selected value="<?php echo $thana ?>"><?php echo $thana ?></option>
-								<option value="Rajshahi">Rajshahi</option>
-								<option value="Dhaka" >Dhaka</option>
-								<option value="Borisal" >Borisal</option>
-								<option value="Khulna">Khulna</option>
-								<option value="Chittagong">Chittagong</option>
 							</select>
 							<br><br>
 						</td>
