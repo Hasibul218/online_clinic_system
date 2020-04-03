@@ -40,7 +40,7 @@
 		<button class="button"onclick="window.location='../control/LogoutControl.php'">Logout</button>
 		<button type="button"name="home"class="button"onclick="window.location='DoctorHomePage.php'">Home Page</button>
 		<div class="div1">
-			<h2>Patient Request</h2>
+			<h2>Patient Wating</h2>
 		</div>
 		<!--popup page starts-->
 		<div id="bg-model"class="bg-model">
