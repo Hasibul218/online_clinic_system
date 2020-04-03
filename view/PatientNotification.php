@@ -1,4 +1,6 @@
 <?php
+	include 'CSS/bootstrap.php';
+	include '../control/PatientsControl.php';
 	//session starts
 	session_start();
 	if(isset($_SESSION['pid']))
@@ -17,6 +19,7 @@
 		header("Location:Login.php");
 	}
 	//session ends
+	$notifications=notification($_SESSION['pid']);
 ?>
 <html>
 	<head>
@@ -31,6 +34,31 @@
 	<body>
 		<div class="div1">
 			<h2>Notification</h2>
+		</div>
+		<div class="table">
+			<table class="table table-hover table-bordered ">
+			  <thead>
+			    <tr class="thead-dark">
+					<th scope="col">Doctor name</th>
+					<th scope="col">Clinic name</th>
+					<th scope="col">Time</th>
+					<th scope="col">Date</th>
+					<th scope="col">Notification</th>
+			    </tr>
+			  </thead>
+			  <tbody>
+			  	<?php foreach ($notifications as $value) { ?>
+			  		<tr>
+						<td><?php echo $value['dname'] ?></td>
+						<td><?php echo$value['cname'] ?></td>
+						<td><?php echo $value['time'] ?></td>
+						<td><?php echo $value['date'] ?></td>
+						<td><?php echo $value['notification'] ?></td>
+				    </tr>
+			  	<?php } ?>
+				    
+			  </tbody>
+			</table>
 		</div>
 	</body>
 </html>

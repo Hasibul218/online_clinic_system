@@ -324,4 +324,11 @@ function patient($pid)
 	$results=getdata($query);
 	return $results;
 }
+//notification table retrieve
+function notification($pid)
+{
+	$notification="SELECT * FROM `notification` WHERE pid='$pid'";
+	$results=getdata($notification);
+	return $results;
+}
 ?>
