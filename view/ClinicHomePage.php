@@ -43,9 +43,11 @@
 				<h5>Update Schedule</h5>
 				<div class="setschedule-list">
 					<input name="cid" value="<?php echo $_SESSION['cid']; ?>"readonly><br><br>
-					<input type="checkbox" name="s1" value="08am - 10am"> 08am - 10am<br><br>
-					<input type="checkbox" name="s2" value="02pm - 05pm"> 02pm - 05pm<br><br>
-					<input type="checkbox" name="s3"value="08pm - 10pm"> 08pm - 10pm<br><br>
+
+					<input type="radio" name="time" value="08am - 10am"> 08am - 10am<br><br>
+					<input type="radio" name="time" value="02pm - 05pm"> 02pm - 05pm<br><br>
+					<input type="radio" name="time" value="08pm - 10pm"> 08pm - 10pm<br><br>
+
 					<input type="date" name="date" required><br><br>
 					<label class="errcbox"><?php echo "Please select at least one time"; ?></label><br>
 					<button name="schedule" class="prescrive" >Schedule</button>
