@@ -19,8 +19,12 @@
 		header("Location:Login.php");
 	}
 	//session ends
-	$id=0;
-	$schedules=clinicschedule($_SESSION['cid']);
+	$id1=0;
+	$id2=0;
+	$id3=0;
+	$slots1=slot1($_SESSION['cid']);
+	$slots2=slot2($_SESSION['cid']);
+	$slots3=slot3($_SESSION['cid']);
 ?>
 <!DOCTYPE html>
 <html>
@@ -35,36 +39,88 @@
 	<div class="div1">
 		<h2>Schedule</h2>
 	</div>
-	<!--table for clinic set schedule-->
-		<div class="table">
-			<table class="table table-hover table-bordered ">
-				<thead>
-				    <tr class="thead-dark">
-						<th scope="col">SI#</th>
-						<th scope="col">Schedule 1</th>
-						<th scope="col">Schedule 2</th>
-						<th scope="col">Schedule 3</th>
-						<th scope="col">Date</th>
-						<th scope="col">Actions</th>
-				    </tr>
-				</thead>
-				<?php foreach ($schedules as $schedule) { $id++;?>
-					<tbody>
-					    <tr>
-					    	<th><?php echo $id; ?></th>
-					    	<!--<th><?php //echo $schedule["id"]; ?></th>-->
-							<td><?php echo $schedule["schedule1"]; ?></td>
-							<td><?php echo $schedule["schedule2"]; ?></td>
-							<td><?php echo $schedule["schedule3"]; ?></td>
-							<td><?php echo $schedule["date"]; ?></td>
-							<td>
-								<a href="../control/ClinicControls.php?sdeleteid=<?php echo $schedule['id'] ?>" class="btn btn-danger float-right"style="width: 70px" onclick="return confirm ('Are you sure to delete?');">Delete</a>
-							</td>
+		<div class="slot">
+			<!--table for clinic set slot 1-->
+			<div class="table">
+				<table class="table table-hover table-bordered ">
+					<thead>
+					    <tr class="thead-dark">
+							<th scope="col">SI#</th>
+							<th scope="col">Slot 1</th>
+							<th scope="col">Date</th>
+							<th scope="col">Actions</th>
 					    </tr>
-					</tbody>
-				<?php } ?>
-			</table>
-		</div>
-		<!--table ends-->
+					</thead>
+					<?php foreach ($slots1 as $slot1) { $id1++;?>
+						<tbody>
+						    <tr>
+						    	<th><?php echo $id1; ?></th>
+						    	<!--<th><?php //echo $schedule["id"]; ?></th>-->
+								<td><?php echo $slot1["slot1"]; ?></td>
+								<td><?php echo $slot1["date"]; ?></td>
+								<td>
+									<a href="../control/ClinicControls.php?sdeleteid=<?php echo $schedule['id'] ?>" class="btn btn-danger float-right"style="width: 70px" onclick="return confirm ('Are you sure to delete?');">Delete</a>
+								</td>
+						    </tr>
+						</tbody>
+					<?php } ?>
+				</table>
+			</div>
+			<!--slot 1 table ends-->
+				<!--table for clinic set slot 2-->
+			<div class="table">
+				<table class="table table-hover table-bordered ">
+					<thead>
+					    <tr class="thead-dark">
+							<th scope="col">SI#</th>
+							<th scope="col">Slot 2</th>
+							<th scope="col">Date</th>
+							<th scope="col">Actions</th>
+					    </tr>
+					</thead>
+					<?php foreach ($slots2 as $slot2) { $id2++;?>
+						<tbody>
+						    <tr>
+						    	<th><?php echo $id2; ?></th>
+						    	<!--<th><?php //echo $schedule["id"]; ?></th>-->
+								<td><?php echo $slot2["slot2"]; ?></td>
+								<td><?php echo $slot2["date"]; ?></td>
+								<td>
+									<a href="../control/ClinicControls.php?sdeleteid=<?php echo $schedule['id'] ?>" class="btn btn-danger float-right"style="width: 70px" onclick="return confirm ('Are you sure to delete?');">Delete</a>
+								</td>
+						    </tr>
+						</tbody>
+					<?php } ?>
+				</table>
+			</div>
+			<!--slot 2 table ends-->
+				<!--table for clinic set slot 3-->
+			<div class="table">
+				<table class="table table-hover table-bordered ">
+					<thead>
+					    <tr class="thead-dark">
+							<th scope="col">SI#</th>
+							<th scope="col">Slot 3</th>
+							<th scope="col">Date</th>
+							<th scope="col">Actions</th>
+					    </tr>
+					</thead>
+					<?php foreach ($slots3 as $slot3) { $id3++;?>
+						<tbody>
+						    <tr>
+						    	<th><?php echo $id3; ?></th>
+						    	<!--<th><?php //echo $schedule["id"]; ?></th>-->
+								<td><?php echo $slot3["slot3"]; ?></td>
+								<td><?php echo $slot3["date"]; ?></td>
+								<td>
+									<a href="../control/ClinicControls.php?sdeleteid=<?php echo $schedule['id'] ?>" class="btn btn-danger float-right"style="width: 70px" onclick="return confirm ('Are you sure to delete?');">Delete</a>
+								</td>
+						    </tr>
+						</tbody>
+					<?php } ?>
+				</table>
+			</div>
+			<!--slot 3 table ends-->
+		</div>	
 </body>
 </html>

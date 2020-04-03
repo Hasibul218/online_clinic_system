@@ -48,20 +48,39 @@ function setschedule()
 		$district=$cresult['district'];
 		$thana=$cresult['thana'];
 	}
-	$squery="INSERT INTO clinicsetschedule VALUES (NULL,'$cid','$cname','$cbox1','$cbox2','$cbox3','$divission','$district','$thana','$date')";
-	execute($squery); 
+	$s1query="INSERT INTO slot1 VALUES (NULL,'$cid','$cname','$cbox1','$divission','$district','$thana','$date')";
+	execute($s1query); 
+		$s2query="INSERT INTO slot2 VALUES (NULL,'$cid','$cname','$cbox2','$divission','$district','$thana','$date')";
+	execute($s2query); 
+			$s3query="INSERT INTO slot3 VALUES (NULL,'$cid','$cname','$cbox3','$divission','$district','$thana','$date')";
+	execute($s3query); 
 }
 //insert into clinic schedule table
 
-//data retrieve from clinicsetschedule
-function clinicschedule($cid)
+//data retrieve from slot 1
+function slot1($cid)
 {
-	$csquery="SELECT * FROM clinicsetschedule WHERE cid='$cid'";
+	$csquery="SELECT * FROM slot1 WHERE cid='$cid'";
 	$csresult=getdata($csquery);
 	return $csresult;
 }
-//data retrieve from clinicsetschedule
-
+//data retrieve from slot 1
+//data retrieve from slot 2
+function slot2($cid)
+{
+	$csquery="SELECT * FROM slot2 WHERE cid='$cid'";
+	$csresult=getdata($csquery);
+	return $csresult;
+}
+//data retrieve from slot 2
+//data retrieve from slot 3
+function slot3($cid)
+{
+	$csquery="SELECT * FROM slot3 WHERE cid='$cid'";
+	$csresult=getdata($csquery);
+	return $csresult;
+}
+//data retrieve from slot 3
 //delete clinic schedule
 if (isset($_GET['sdeleteid'])) {
 	$sid=$_GET['sdeleteid'];
