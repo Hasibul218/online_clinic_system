@@ -33,15 +33,7 @@
 		<div class="div1">
 			<h2>Doctor & Patient</h2>
 		</div>
-		<!--search bar and table statrs-->
-		<div class="search">
-			<div class="input-group mb-3">
-				<div class="input-group-prepend">
-					<button class="btn btn-outline-primary" type="button">Search</button>
-				</div>
-				<input type="text" class="form-control" placeholder="search with name" >
-			</div>
-		</div>
+		<!-- table statrs-->
 		<div class="table">
 			<table class="table table-hover table-bordered ">
 			  <thead>
@@ -72,6 +64,6 @@
 			  </tbody>
 			</table>
 		</div>
-		<!--search bar and table ends-->
+		<!--table ends-->
 	</body>
 </html>
