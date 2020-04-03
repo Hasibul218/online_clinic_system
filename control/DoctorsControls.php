@@ -328,5 +328,93 @@ function divission()
 	$results=getdata($query);
 	return $results;
 }
+//data from clinic table
+function clinics()
+{
+	$query="SELECT * from clinics";
+	$results=getdata($query);
+	return $results;
+}
+//insert into doctorsetschedule///
+$err_mgss="";
+$time="";
+$date="";
+$cid="";
+$has=false;
+if(isset($_POST['slot1']))
+{
+	if (empty($_POST['cname'])) {
+		$err_mgss="Fill clinic";
+		$has=true;
+	}
+	else
+	{
+		$cname=$_POST['cname'];
+	}
+	if (empty($_POST['time'])) {
+		$err_mgss="Fill time";
+		$has=true;
+	}
+	else
+	{
+		$time=$_POST['time'];
+	}
+	if (empty($_POST['date'])) {
+		$err_mgss="Fill date";
+		$has=true;
+	}
+	else
+	{
+		$date=$_POST['date'];
+	}
 
+	if(!$has)
+	{
+		$did=$_POST['uid'];
+		$name=doc($did);
+		foreach ($name as $value) {
+			$dname=$value['username'];
+		}
+
+		$clinics=slot1($cname);
+		foreach ($clinics as $value) {
+			$cid=$value['cid'];
+			$divission=$value['divission'];
+			$district=$value['district'];
+			$thana=$value['thana'];
+		}
+		$query="INSERT INTO `doctorsetschedule` VALUES (NULL,'$did','$dname','$cid','$cname','$time','$date','$divission','$district','$thana')";
+		execute($query);
+		}
+	
+	}
+//insert into doctorsetschedule///
+///clinic data from slot1//
+function slot1($cname)
+{
+	global $cname;
+	$query="SELECT * FROM `slot1` WHERE cname='$cname'";
+	$results=getdata($query);
+	return $results;
+}
+///clinic data from slot1 ends//
+function doc($did)
+{
+	$query="SELECT username FROM doctors WHERE userid='$did'";
+	$results=getdata($query);
+	return $results;
+}
+function schedule($did)
+{
+	$query="SELECT * FROM doctorsetschedule WHERE did='$did'";
+	$results=getdata($query);
+	return $results;
+}
+if (isset($_GET['schedule'])) 
+{
+	$id=$_GET['schedule'];
+	$query="DELETE FROM `doctorsetschedule` WHERE id='$id'";
+	execute($query);
+	header('location:../view/DoctorSetSchedule.php');
+}
 ?>
