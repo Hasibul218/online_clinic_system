@@ -1,5 +1,6 @@
 <?php
 	include 'CSS/bootstrap.php';
+	include '../control/PatientsControl.php';
 	//session starts
 	session_start();
 	if(isset($_SESSION['pid']))
@@ -18,6 +19,7 @@
 		header("Location:Login.php");
 	}
 	//session ends
+	$doctors=schedule();
 ?>
 <html>
 	<head>
@@ -58,8 +60,6 @@
 			    <tr class="thead-dark">
 			      <th scope="col">Doctor id</th>
 			      <th scope="col">Doctor name</th>
-			      <th scope="col">Email</th>
-			      <th scope="col">Speciality</th>
 			      <th scope="col">Clinic id</th>
 			      <th scope="col">Clinic name</th>
 			      <th scope="col">Time</th>
@@ -72,22 +72,23 @@
 			    </tr>
 			  </thead>
 			  <tbody>
-			    <tr>
-			      <td>@fat</td>
-			      <td>Jacob</td>
-			      <td>Thornton</td>
-			      <td>@fat</td>
-			      <td>Jacob</td>
-			      <td>Thorntonnjbvbhvvvhv</td>
-			      <td>@fat</td>
-			      <td>Jacob</td>
-			      <td>Thornton</td>
-			      <td>@fat</td>
-			      <td>Jacob</td>
-			      <td>
-				      <button type="button" class="btn btn-danger float-right"style="width: 70px">Send</button>
-			      </td>
-			    </tr>
+			  	<?php foreach ($doctors as $value) { ?>
+			  		<tr>
+			  			<td><?php echo $value['did'] ?></td>
+			  			<td><?php echo $value['dname'] ?></td>
+			  			<td><?php echo $value['cid'] ?></td>
+			  			<td><?php echo $value['cname'] ?></td>
+			  			<td><?php echo $value['time'] ?></td>
+			  			<td><?php echo $value['date'] ?></td>
+			  			<td><?php echo $value['divission'] ?></td>
+			  			<td><?php echo $value['district'] ?></td>
+			  			<td><?php echo $value['thana'] ?></td>
+				      	<td>
+					    	<a href="../control/PatientsControl.php?reqid=<?php echo $value['id'] ?> & pid=<?php echo $_SESSION['pid'] ?>" class="btn btn-primary float-right"style="width: 75px" onclick="return confirm ('Are you sure want to request?');">Request</a>
+				      	</td>
+				    </tr>
+			  	<?php } ?>
+				    
 			  </tbody>
 			</table>
 		</div>

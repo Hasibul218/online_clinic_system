@@ -276,5 +276,52 @@ function divission()
 	$results=getdata($query);
 	return $results;
 }
-
+function schedule()
+{
+	$query="SELECT * FROM `doctorsetschedule`";
+	$results=getdata($query);
+	return $results;
+}
+///req to doctor
+if (isset($_GET['reqid'])) 
+{
+	$reqid=$_GET['reqid'];
+	patientrequest($reqid);
+	header('location:../view/PatientHomePage.php');
+}
+function patientrequest($reqid)
+{
+	$pid=$_GET['pid'];
+	$patients=patient($pid);
+	foreach ($patients as $value) 
+	{
+		$pname=$value['username'];
+	}
+	$result=doctorsetschedule($reqid);
+	foreach ($result as $value) {
+		$did=$value['did'];
+		$dname=$value['dname'];
+		$cid=$value['cid'];
+		$cname=$value['cname'];
+		$time=$value['time'];
+		$date=$value['date'];
+		$divission=$value['divission'];
+		$district=$value['district'];
+		$thana=$value['thana'];
+	}
+	$query="INSERT INTO `patientrequest`VALUES (NULL,'$pid','$pname','$did','$dname','$cid','$cname','$time','$date','$divission','$district','$thana')";
+	execute($query);
+}
+function doctorsetschedule($id)
+{
+	$query="SELECT * FROM doctorsetschedule WHERE id='$id'";
+	$results=getdata($query);
+	return $results;
+}
+function patient($pid)
+{
+	$query="SELECT * FROM patients WHERE userid='$pid'";
+	$results=getdata($query);
+	return $results;
+}
 ?>
