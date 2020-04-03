@@ -37,6 +37,7 @@
 			<a href="DoctorProfile.php">Profile</a>
 			<a href="DoctorSetSchedule.php">Set Schedule</a>
 			<a href="DoctorPatientWaiting.php">Patient Wating</a>
+			<a href="DoctorPatientRequest.php">Patient Request</a>
 			<a href="DoctorPatientRecords.php">Patient Records</a>
 		</div>
 	</body>

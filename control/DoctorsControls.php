@@ -417,4 +417,68 @@ if (isset($_GET['schedule']))
 	execute($query);
 	header('location:../view/DoctorSetSchedule.php');
 }
+function patientschedule($did)
+{
+	$query="SELECT * FROM patientrequest WHERE did='$did'";
+	$results=getdata($query);
+	return $results;
+}
+function patientsetschedule($prid)
+{
+	$query="SELECT * FROM patientrequest WHERE id='$prid'";
+	$results=getdata($query);
+	return $results;
+}
+///doctor accept request////
+if (isset($_GET['prid'])) {
+	$prid=$_GET['prid'];
+	$watings=patientsetschedule($prid);
+	foreach ($watings as $value) {
+		
+		$pid=$value['pid'];
+		$pname=$value['pname'];
+		$did=$value['did'];
+		$dname=$value['dname'];
+		$cid=$value['cid'];
+		$cname=$value['cname'];
+		$time=$value['time'];
+		$date=$value['date'];
+		$divission=$value['divission'];
+		$district=$value['district'];
+		$thana=$value['thana'];
+	}
+	$query="INSERT INTO `patientwaiting` VALUES (NULL,'$pid','$pname','$did','$dname','$cid','$cname','$time','$date','$divission','$district','$thana')";
+	execute($query);
+	deleterequest($prid);
+	header('location:../view/DoctorPatientWaiting.php');
+	$notification="INSERT INTO `notification` VALUES (NULL,'$pid','$did','$dname','$cname','$time','$date','You are appointed')";
+	execute($notification);
+}
+function deleterequest($prid)
+{
+	$query="DELETE FROM `patientrequest` WHERE id='$prid'";
+	execute($query);
+}
+if (isset($_GET['delid'])) {
+	$delid=$_GET['delid'];
+	deleterequest($delid);
+	header('location:../view/DoctorPatientRequest.php');
+}
+function patientlist($did)
+{
+	$query="SELECT * FROM `patientwaiting` WHERE did='$did'";
+	$results=getdata($query);
+	return $results;
+}
+if (isset($_GET['wpid'])) {
+	$wpid=$_GET['wpid'];
+	deletewating($wpid);
+	header('location:../view/DoctorPatientWaiting.php');
+
+}
+function deletewating($wpid)
+{
+	$query="DELETE FROM `patientwaiting` WHERE id='$wpid'";
+	execute($query);
+}
 ?>
