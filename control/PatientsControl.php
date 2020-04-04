@@ -331,4 +331,12 @@ function notification($pid)
 	$results=getdata($notification);
 	return $results;
 }
+//data retrieve from patient records table starts///
+function patientrecords($pid)
+{
+	$records="SELECT * FROM `patientrecords` WHERE pid='$pid'";
+	$results=getdata($records);
+	return $results;
+}
+//data retrieve from patient records table ends///
 ?>

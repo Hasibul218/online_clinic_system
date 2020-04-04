@@ -1,5 +1,6 @@
 <?php
 	include 'CSS/bootstrap.php';
+	include '../control/PatientsControl.php';
 	//session starts
 	session_start();
 	if(isset($_SESSION['pid']))
@@ -18,6 +19,9 @@
 		header("Location:Login.php");
 	}
 	//session ends
+	$id=0;
+	//data from patient records table//
+	$precords=patientrecords($_SESSION['pid']);
 ?>
 <html>
 	<head>
@@ -38,43 +42,37 @@
 			<table class="table table-hover table-bordered ">
 			  <thead>
 			    <tr class="thead-dark">
+			      <th scope="col">SI#</th>
+			      <th scope="col">Doctor id</th>
 			      <th scope="col">Doctor name</th>
-			      <th scope="col">Patient name</th>
-			      <th scope="col">Date</th>
-			      <th scope="col">Time</th>
 			      <th scope="col">Clinic name</th>
 			      <th scope="col">Time</th>
 			      <th scope="col">Date</th>
-			      <th scope="col">Divission</th>
-			      <th scope="col">District</th>
-			      <th scope="col">Thana</th>
 			      <th scope="col">Symptom</th>
-			      <th scope="col">Disease</th>
+			      <th scope="col">Diseases</th>
 			      <th scope="col">Test</th>
+			      <th scope="col">Test clinic</th>
 			      <th scope="col">Report</th>
-			      <th scope="col">Medicines</th>
-				
+				  <th scope="col">Medicines</th>
 			    </tr>
 			  </thead>
 			  <tbody>
-			    <tr>
-			      <td>@fat</td>
-			      <td>Jacob</td>
-			      <td>Thornton</td>
-			      <td>@fat</td>
-			      <td>Jacob</td>
-			      <td>Thorntonnjbvbhvvvhv</td>
-			      <td>@fat</td>
-			      <td>Jacob</td>
-			      <td>Thornton</td>
-			      <td>@fat</td>
-			      <td>Jacob</td>
-			      <td>Thornton</td>
-			      <td>@fat</td>
-			      <td>Jacob</td>
-			      <td>@fat</td>
-
-			    </tr>
+			  	<?php foreach ($precords as $value) { $id++ ?>
+			  		<tr>
+						<th><?php echo $id ?></th>
+						<td><?php echo $value['did'] ?></td>
+						<td><?php echo $value['dname'] ?></td>
+						<td><?php echo $value['cname'] ?></td>
+						<td><?php echo $value['time'] ?></td>
+						<td><?php echo $value['date'] ?></td>
+						<td><?php echo $value['symptom'] ?></td>
+						<td><?php echo $value['diseases'] ?></td>
+						<td><?php echo $value['test'] ?></td>
+						<td><?php echo $value['testclinic'] ?></td>
+						<td><?php echo $value['report'] ?></td>
+						<td><?php echo $value['medicines'] ?></td>
+				    </tr>
+			  	<?php } ?>
 			  </tbody>
 			</table>
 		</div>
