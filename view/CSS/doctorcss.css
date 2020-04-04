@@ -47,8 +47,8 @@ align-items:center;
 }
 .model-content
 {
-        width: 500px;
-    height: 590px;
+    width: 500px;
+    height: 628px;
     background-color: #2b2626;
     border-radius:4px;
     text-align:center;
@@ -61,7 +61,7 @@ align-items:center;
     font-family: inherit;
     font-size: 14px;
 }
-#content
+.content-c
 {
 padding: 5px;
     border: none;
@@ -134,6 +134,18 @@ h5
 {
         letter-spacing: normal;
     padding: 22px 0px 0px 116px;
+}
+.pop
+{
+        border: none;
+    background-color: #2b2626;
+    font-size: 15px;
+    color: white;
+}
+.need
+{
+        text-align: initial;
+    padding: 0px 0px 0px 45px;
 }
 
 

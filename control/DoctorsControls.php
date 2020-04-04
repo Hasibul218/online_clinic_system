@@ -481,4 +481,72 @@ function deletewating($wpid)
 	$query="DELETE FROM `patientwaiting` WHERE id='$wpid'";
 	execute($query);
 }
+function testclinics()
+{
+	$test="SELECT * FROM testclinic";
+	$results=getdata($test);
+	return $results;
+}
+function diseases()
+{
+	$diseases="SELECT * FROM diseases";
+	$results=getdata($diseases);
+	return $results;
+}
+///prescrive insert here///
+if (isset($_POST['prescrive'])) {
+	$did=$_POST['did'];
+	$pid=$_POST['pid'];
+	$pname=$_POST['pname'];
+	$pno=$_POST['pno'];
+	///data from patientwaiting table//
+	$wait=waitingpatient($pno);
+	foreach ($wait as $value) {
+		$dname=$value['dname'];
+		$cid=$value['cid'];
+		$cname=$value['cname'];
+		$time=$value['time'];
+		$date=$value['date'];
+	}
+	///data from patientwaiting table//
+	$symtom=$_POST['symtom'];
+	$diseases=$_POST['diseases'];
+	$test=$_POST['test'];
+	$tcname=$_POST['tcname'];
+	$report=$_POST['report'];
+	$medicines=$_POST['medicines'];
+	$records="INSERT INTO `patientrecords` VALUES (NULL,'$did','$dname','$pid','$pname','$cid','$cname','$time','$date','$symtom','$diseases','$test','$tcname','$report','$medicines')";
+	execute($records);
+	header('location:../view/DoctorPatientRecords.php');
+}
+function waitingpatient($pno)
+{
+	$no="SELECT * FROM `patientwaiting` WHERE id='$pno'";
+	$results=getdata($no);
+	return $results;
+}
+///prescrive insert edns///
+//data retrieve from patient records table starts///
+function patientrecords($did)
+{
+	$records="SELECT * FROM `patientrecords` WHERE did='$did'";
+	$results=getdata($records);
+	return $results;
+}
+//data retrieve from patient records table ends///
+///update into patientrecords table starts//
+if (isset($_POST['edit'])) 
+{
+	$pno=$_POST['pno'];
+	$symptom=$_POST['symtom'];
+	$diseases=$_POST['diseases'];
+	$test=$_POST['test'];
+	$tcname=$_POST['tcname'];
+	$report=$_POST['report'];
+	$medicines=$_POST['medicines'];
+	$update="UPDATE `patientrecords` SET `symptom`='$symptom',`diseases`='$diseases',`test`='$test',`testclinic`='$tcname',`report`='$report',`medicines`='$medicines' WHERE id='$pno'";
+	execute($update);
+	header('location:../view/DoctorPatientRecords.php');
+}
+///update into patientrecords table ends//
 ?>

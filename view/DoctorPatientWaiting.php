@@ -21,6 +21,8 @@
 	//session ends
 	$id=0;
 	$patients=patientlist($_SESSION['did']);
+	$testclinics=testclinics();
+	$diseases=diseases();
 ?>
 
 <html>
@@ -30,9 +32,35 @@
 		</title>
 		<link rel="stylesheet"type="text/css"href="CSS/doctorcss.css">
 		<script>
-			function prescrive()
+			function prescrive(pname,pid,pno)
 			{
 				document.getElementById('bg-model').style.display='flex';
+				//var pid=document.getElementById('pid').value;
+				document.getElementById('pname').value=pname;
+				document.getElementById('pid').value=pid;
+				document.getElementById('pno').value=pno;
+
+			}
+			function validateForm()
+			{
+				var x = document.forms["popupform"]["symtom"].value;
+				if (x == "") 
+				{
+				alert("Symtom must be filled out");
+				return false;
+				}
+				var y = document.forms["popupform"]["report"].value;
+				if (y == "") 
+				{
+				alert("Report must be filled out");
+				return false;
+				}
+				var z = document.forms["popupform"]["medicines"].value;
+				if (z == "") 
+				{
+				alert("Give some medicines");
+				return false;
+				}
 			}
 		</script>
 	</head>
@@ -48,31 +76,49 @@
 				<div >
 					<button type="button"name="close"class="close"onclick="document.getElementById('bg-model').style.display='none'";>+</button>
 				</div>
-				<form action=""method="post">
-					<label class="content">Patient Name :</label><br>
-					<label class="content">Gender :</label><br><br>
+				<form name="popupform" action="../control/DoctorsControls.php"  method="post" onsubmit="return validateForm()">
+					<div class="need">
+						<label class="content">Doctor Id : </label>
+						<input type="text" name="did" value="<?php echo $_SESSION['did'] ?>" id="did" class="pop" readonly><br>
+
+						<label class="content">Patient Name : </label>
+						<input type="text" value="" name="pname" id="pname" class="pop" readonly><br>
+
+						<label class="content">Patient Id : </label>
+						<input type="text" value="" name="pid" id="pid" class="pop" readonly><br>
+
+						<label class="content">Patient no. : </label>
+						<input type="text" value="" name="pno" id="pno" class="pop" readonly><br>
+					</div>
 					<label class="content">Symptom :</label><br>
-					<input id="content"type="text"placeholder="Symptom"name="symtom"><br>
+					<input class="content-c" type="text" placeholder="Symptom" name="symtom"><br> 
+
 					<label class="content">Diseases :</label><br>
-					<select id="content"name="diseases">
-						<option>High Fever</option>
-						<option>High Fever</option>
-					</select><br>
+					<select class="content-c"name="diseases">
+						<option selected disabled>Diseases..</option>
+						<?php foreach ($diseases as $value) {?>
+							<option value="<?php echo $value['diseases'] ?>"><?php echo $value['diseases'] ?></option>
+						<?php } ?>
+					</select><br> 
+
 					<label class="content">Test :</label><br>
-					<select id="content"name="test">
-						<option>High Fever</option>
-						<option>High Fever</option>
-					</select><br>
+					<input type="text" name="test" class="content-c">
+
 					<label class="content">Test Clinic Name :</label><br>
-					<select id="content"name="cname">
-						<option>High Fever</option>
-						<option>High Fever</option>
+					<select class="content-c"name="tcname">
+						<option selected disabled>Test Clinic..</option>
+						<?php foreach ($testclinics as $value) {?>
+							<option value="<?php echo $value['tcname'] ?>"><?php echo $value['tcname'] ?></option>
+						<?php } ?>
 					</select><br>
+
 					<label class="content">Report :</label><br>
-					<input type="text"name="report"id="content"placeholder="write report here"><br>
+					<input type="text" name="report" class="content-c" placeholder="write report here"><br>
+
 					<label class="content">Medicines :</label><br>
-					<textarea type="text"name="medicines"id="content"placeholder="write medicines here"></textarea><br><br>
-					<button type="button"name="prescrive"class="prescrive"onclick="window.location=''">Prescrive</button>
+					<textarea type="text" name="medicines" class="content-c" placeholder="write medicines here"></textarea><br><br>
+
+					<input type="submit" name="prescrive" value="Submit" class="prescrive">
 				</form>
 			</div>
 		</div>
@@ -118,7 +164,7 @@
 			  			<td><?php echo $value['thana'] ?></td>
 				      	<td>
 					      	<button type="button" class="btn btn-danger float-right"style="width: 78px" onclick="location.href='../control/DoctorsControls.php?wpid=<?php echo $value['id'] ?>'">Delete</button>
-					      	<button type="button" class="btn btn-primary float-right"style="width: 78px"onclick="prescrive()">Prescrive</button>
+					      	<button type="button" class="btn btn-primary float-right"style="width: 78px"onclick="prescrive('<?php echo $value['pname']?>','<?php echo $value['pid']?>','<?php echo $value['id']?>')">Prescrive</button>
 				      	</td>
 				    </tr>
 			  	<?php } ?>
