@@ -151,14 +151,6 @@ function insertclinic()
 	execute($cquery); 
 	execute($uquery); 
 }
-//search from database starts
-function search($cname)
-{
-	$squery="SELECT * FROM `clinics` WHERE cname LIKE '$cname%'";
-	$sresults=getdata($squery);
-	return $sresults;
-}
-//search from database ends
 //data retrieve fron clinics table starts
 function clinicsdata()
 {
@@ -322,4 +314,12 @@ function divission()
 	$results=getdata($query);
 	return $results;
 }
+//data retrieve from patient records table starts///
+function patientrecords()
+{
+	$records="SELECT * FROM `patientrecords`";
+	$results=getdata($records);
+	return $results;
+}
+//data retrieve from patient records table ends///
 ?>

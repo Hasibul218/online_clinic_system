@@ -29,6 +29,32 @@
 			Admin Patient List
 		</title>
 		<link rel="stylesheet"type="text/css"href="CSS/admincliniclist.css">
+		<!--search function starts-->
+		<script>
+			function search() 
+			{
+				var search_input = document.getElementById('search_input').value.toUpperCase();
+				var table = document.getElementById('patient_table');
+				var tr = table.getElementsByTagName('tr');
+				for(var i=0; i<tr.length; i++)
+				{
+					var td = tr[i].getElementsByTagName('td')[1];
+					if (td) 
+					{
+						var textvalue = td.textContent || td.innerHTML;
+						if (textvalue.toUpperCase().indexOf(search_input) > -1) 
+						{
+							tr[i].style.display = "";
+						}
+						else
+						{
+							tr[i].style.display = "none";
+						}
+					}
+				}
+			}
+		</script>
+		<!--search function ends-->
 	</head>
 	<body>
 		<div class="div1">
@@ -38,10 +64,7 @@
 		</div>
 		<div class="search">
 			<div class="input-group mb-3">
-				<div class="input-group-prepend">
-					<button class="btn btn-outline-primary" type="button">Search</button>
-				</div>
-				<input type="text" class="form-control" placeholder="search with name" >
+				<input type="text" class="form-control" placeholder="search name..." id="search_input" onkeyup="search()">
 			</div>
 			<div class="totalclinic">
 					<label>Total Patients</label>
@@ -49,7 +72,7 @@
 			</div>
 		</div>
 		<div class="table">
-			<table class="table table-hover table-bordered ">
+			<table class="table table-hover table-bordered " id="patient_table">
 				<thead>
 				    <tr class="thead-dark">
 						<th scope="col">SI#</th>

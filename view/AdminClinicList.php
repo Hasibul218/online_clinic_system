@@ -20,16 +20,7 @@
 	}
 	//session ends
 	//data from clinics table
-	if(isset($_POST['search']))
-	{
-		$s=$_POST['search'];
-		$clinics=search($s);
-	}
-	else
-	{
-		$clinics=clinicsdata();
-		$s="";
-	}
+	$clinics=clinicsdata();
 	$count=count($clinics);//count clinic
 	$id=0;
 ?>
@@ -39,6 +30,32 @@
 			Admin Clinic List
 		</title>
 		<link rel="stylesheet"type="text/css"href="CSS/admincliniclist.css">
+		<!--search function starts-->
+		<script>
+			function search() 
+			{
+				var search_input = document.getElementById('search_input').value.toUpperCase();
+				var table = document.getElementById('clinic_table');
+				var tr = table.getElementsByTagName('tr');
+				for(var i=0; i<tr.length; i++)
+				{
+					var td = tr[i].getElementsByTagName('td')[1];
+					if (td) 
+					{
+						var textvalue = td.textContent || td.innerHTML;
+						if (textvalue.toUpperCase().indexOf(search_input) > -1) 
+						{
+							tr[i].style.display = "";
+						}
+						else
+						{
+							tr[i].style.display = "none";
+						}
+					}
+				}
+			}
+		</script>
+		<!--search function ends-->
 	</head>
 	<body>
 		<div class="div1">
@@ -49,21 +66,16 @@
 		</div>
 		<!--search bar & table ends-->
 			<div class="search">
-			<form method="POST" action="">
 				<div class="input-group mb-3">
-					<div class="input-group-prepend">
-						<button class="btn btn-outline-primary" type="button" name="search"><i class="fa fa-search"></i></button>
-					</div>
-					<input type="text" class="form-control" name="search" value="" placeholder="search with name" >
+					<input type="text" class="form-control" name="search" id="search_input" value="" placeholder="search name..." onkeyup="search()">
 				</div>
-			</form>
 				<div class="totalclinic">
 					<label>Total Clinic</label>
 					<input class="form-control" type="text" value="<?php echo $count ?>" readonly>
 				</div>
 			</div>
 		<div class="table">
-			<table class="table table-hover table-bordered ">
+			<table class="table table-hover table-bordered " id="clinic_table">
 			  <thead>
 			    <tr class="thead-dark">
 			      <th scope="col">SI#</th>
