@@ -67,4 +67,12 @@ function scheduledelete($id)
 	execute($sdelete);
 }
 //delete clinic schedule
+//data retrieve from patient records table starts///
+function patientrecords($cid)
+{
+	$records="SELECT * FROM `patientrecords` WHERE cid='$cid'";
+	$results=getdata($records);
+	return $results;
+}
+//data retrieve from patient records table ends///
 ?>
