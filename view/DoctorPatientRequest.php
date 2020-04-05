@@ -30,10 +30,30 @@
 		</title>
 		<link rel="stylesheet"type="text/css"href="CSS/doctorcss.css">
 		<script>
-			function prescrive()
+			//search here//
+			function search() 
 			{
-				document.getElementById('bg-model').style.display='flex';
+				var search_input = document.getElementById('search_input').value.toUpperCase();
+				var table = document.getElementById('patient_request_list');
+				var tr = table.getElementsByTagName('tr');
+				for(var i=0; i<tr.length; i++)
+				{
+					var td = tr[i].getElementsByTagName('td')[2];
+					if (td) 
+					{
+						var textvalue = td.textContent || td.innerHTML;
+						if (textvalue.toUpperCase().indexOf(search_input) > -1) 
+						{
+							tr[i].style.display = "";
+						}
+						else
+						{
+							tr[i].style.display = "none";
+						}
+					}
+				}
 			}
+			//search here ends//
 		</script>
 	</head>
 	<body>
@@ -45,14 +65,11 @@
 		<!--search bar and table statrs-->
 		<div class="search">
 			<div class="input-group mb-3">
-				<div class="input-group-prepend">
-					<button class="btn btn-outline-primary" type="button">Search</button>
-				</div>
-				<input type="text" class="form-control" placeholder="search with name" >
+				<input type="text" class="form-control" placeholder="search name..." id="search_input" onkeyup="search()">
 			</div>
 		</div>
 		<div class="table">
-			<table class="table table-hover table-bordered ">
+			<table class="table table-hover table-bordered " id="patient_request_list">
 			  <thead>
 			    <tr class="thead-dark">
 			      <th scope="col">SI#</th>
