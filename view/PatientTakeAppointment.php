@@ -27,6 +27,54 @@
 			Take Appointment
 		</title>
 		<link rel="stylesheet"type="text/css"href="CSS/doctorcss.css">
+		<script>
+			//search here//
+			function search_name() 
+			{
+				var search_input = document.getElementById('search_input_name').value.toUpperCase();
+				var table = document.getElementById('doctor_appointment_list');
+				var tr = table.getElementsByTagName('tr');
+				for(var i=0; i<tr.length; i++)
+				{
+					var td = tr[i].getElementsByTagName('td')[1];
+					if (td) 
+					{
+						var textvalue = td.textContent || td.innerHTML;
+						if (textvalue.toUpperCase().indexOf(search_input) > -1) 
+						{
+							tr[i].style.display = "";
+						}
+						else
+						{
+							tr[i].style.display = "none";
+						}
+					}
+				}
+			}
+			function search_id() 
+			{
+				var search_input = document.getElementById('search_input_id').value.toUpperCase();
+				var table = document.getElementById('doctor_appointment_list');
+				var tr = table.getElementsByTagName('tr');
+				for(var i=0; i<tr.length; i++)
+				{
+					var td = tr[i].getElementsByTagName('td')[0];
+					if (td) 
+					{
+						var textvalue = td.textContent || td.innerHTML;
+						if (textvalue.toUpperCase().indexOf(search_input) > -1) 
+						{
+							tr[i].style.display = "";
+						}
+						else
+						{
+							tr[i].style.display = "none";
+						}
+					}
+				}
+			}
+			//search here ends//
+		</script>
 	</head>
 	<button type="button"name="home"class="button"onclick="window.location='PatientHomePage.php'">Home Page</button>
 	<button class="button"onclick="window.location='PatientNotification.php'">Noification</button>
@@ -38,24 +86,18 @@
 		<!--search by name-->
 		<div class="search">
 			<div class="input-group mb-3">
-				<div class="input-group-prepend">
-					<button class="btn btn-outline-primary" type="button">Search</button>
-				</div>
-				<input type="text" class="form-control" placeholder="search with doctor name" >
+				<input type="text" class="form-control" placeholder="search doctor name..." id="search_input_name" onkeyup="search_name()">
 			</div>
 		</div>
 		<!--search by id-->
 		<div class="search">
 			<div class="input-group mb-3">
-				<div class="input-group-prepend">
-					<button class="btn btn-outline-primary" type="button">Search</button>
-				</div>
-				<input type="text" class="form-control" placeholder="search with doctor id" >
+				<input type="text" class="form-control" placeholder="search doctor id..." id="search_input_id" onkeyup="search_id()">
 			</div>
 		</div>
 
 		<div class="table">
-			<table class="table table-hover table-bordered ">
+			<table class="table table-hover table-bordered " id="doctor_appointment_list">
 			  <thead>
 			    <tr class="thead-dark">
 			      <th scope="col">Doctor id</th>
