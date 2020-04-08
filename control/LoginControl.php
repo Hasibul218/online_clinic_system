@@ -20,7 +20,7 @@
 				{
 					$passdb=$value["password"];
 					$status=$value["status"];
-					if ($pass==$passdb) 
+					if(password_verify($pass, $passdb))
 					{
 						if ($status==1) 
 						{

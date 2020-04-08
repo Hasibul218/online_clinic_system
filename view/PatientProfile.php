@@ -129,10 +129,10 @@
 					</tr>		
 					<tr>
 						<td>
-							<label>Password</label><br><br>
+							<label>New Password</label><br><br>
 						</td>
 						<td>
-							<input type="text" name="pass"id="field" value="<?php echo $password ?>"required>
+							<input type="password" name="pass"id="field" value=""required>
 							<br><br>
 						</td>
 					</tr>

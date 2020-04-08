@@ -83,7 +83,7 @@
 		</div>
 		<div class="cregister">
 			<h4>Clinic Register Form</h4><hr><br>
-				<form method="post" action="../control/AdminControl.php"id="cregister">
+				<form method="post" action="" id="cregister">
 					<table>
 						<tr>
 							<td>

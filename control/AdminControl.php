@@ -60,6 +60,7 @@
 		else
 		{
 			$pass=htmlspecialchars($_POST['pass']);
+			$pass=password_hash($pass, PASSWORD_DEFAULT);
 		}
 		
 		if(empty($_POST['number']))
@@ -116,7 +117,7 @@
 			$result=execute($query);
 			if(mysqli_num_rows($result)>0)
 			{
-				$err_cid= "user id not available";
+				$err_cid= "*user id not available";
 			}
 			else
 			{

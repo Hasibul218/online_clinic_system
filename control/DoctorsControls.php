@@ -28,6 +28,7 @@
 	$err_description="";
 	$description="";
 	$has_err=false;
+	$pass_hash="";
 	if(isset($_POST['submit']))
 	{
 		if(empty($_POST['uid']))
@@ -71,6 +72,7 @@
 		else
 		{
 			$pass=htmlspecialchars($_POST['pass']);
+			$pass_hash=password_hash($pass, PASSWORD_DEFAULT);
 		}
 		if(empty($_POST['gender']))
 		{
@@ -243,7 +245,7 @@ function inserttempdoctor()
 {
 	global $uid;
 	global $uname;
-	global $pass;
+	global $pass_hash;
 	global $gender;
 	global $email;
 	global $number;
@@ -260,7 +262,7 @@ function inserttempdoctor()
 	//insert into tempdoctorrequests table
 	$dquery="INSERT INTO tempdoctorrequests VALUES (NULL,'$uid','$uname','$gender','$email','$number','$dob','$divission','$district','$thana','$specialty','$degree','$bmdcregno','$description')";
 	//insert into tempusers table
-	$uquery="INSERT INTO tempusers VALUES (NULL,'$uid','$pass','$status')";
+	$uquery="INSERT INTO tempusers VALUES (NULL,'$uid','$pass_hash','$status')";
 
 	execute($dquery); 
 	execute($uquery); 
@@ -287,6 +289,7 @@ if(isset($_POST['update']))
 	$uid=($_GET['uid']);
 	$uname=$_POST['uname'];
 	$pass=$_POST['pass'];
+	$pass=password_hash($pass, PASSWORD_DEFAULT);
 	$number=$_POST['number'];
 	$divission=$_POST['divission'];
 	$district=$_POST['district'];
@@ -454,16 +457,39 @@ if (isset($_GET['prid'])) {
 	$notification="INSERT INTO `notification` VALUES (NULL,'$pid','$did','$dname','$cname','$time','$date','You are appointed')";
 	execute($notification);
 }
+///doctor accept request ends////
+
 function deleterequest($prid)
 {
 	$query="DELETE FROM `patientrequest` WHERE id='$prid'";
 	execute($query);
 }
+
+//patient request reject//
 if (isset($_GET['delid'])) {
 	$delid=$_GET['delid'];
+	$reject=patientsetschedule($delid);
+	foreach ($reject as $value) 
+	{
+	$pid=$value['pid'];
+	$pname=$value['pname'];
+	$did=$value['did'];
+	$dname=$value['dname'];
+	$cid=$value['cid'];
+	$cname=$value['cname'];
+	$time=$value['time'];
+	$date=$value['date'];
+	$divission=$value['divission'];
+	$district=$value['district'];
+	$thana=$value['thana'];
+	}
 	deleterequest($delid);
 	header('location:../view/DoctorPatientRequest.php');
+	$notification="INSERT INTO `notification` VALUES (NULL,'$pid','$did','$dname','$cname','$time','$date','You are Rejected')";
+	execute($notification);
 }
+//patient request reject ends//
+
 function patientlist($did)
 {
 	$query="SELECT * FROM `patientwaiting` WHERE did='$did'";

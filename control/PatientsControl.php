@@ -23,6 +23,7 @@
 	$bloodgroup="";
 	$has_err=false;
 	$click="";
+	$pass_hash="";
 	
 	if(isset($_POST['submit']))
 	{
@@ -70,6 +71,7 @@
 		else
 		{
 			$pass=htmlspecialchars($_POST['pass']);
+			$pass_hash=password_hash($pass, PASSWORD_DEFAULT);
 		}
 		
 		if(empty($_POST['gender']))
@@ -201,6 +203,7 @@ if(isset($_POST['update']))
 	$uid=($_GET['uid']);
 	$uname=$_POST['uname'];
 	$pass=$_POST['pass'];
+	$pass=password_hash($pass, PASSWORD_DEFAULT);
 	$number=$_POST['number'];
 	$divission=$_POST['divission'];
 	$district=$_POST['district'];
@@ -214,7 +217,7 @@ function insertpatient()
 {
 	global $uid;
 	global $uname;
-	global $pass;
+	global $pass_hash;
 	global $gender;
 	global $email;
 	global $number;
@@ -228,7 +231,7 @@ function insertpatient()
 	//insert into patients table
 	$pquery="INSERT INTO patients VALUES (NULL,'$uid','$uname','$gender','$email','$number','$dob','$bloodgroup','$divission','$district','$thana')";
 	//insert into users table
-	$uquery="INSERT INTO users VALUES (NULL,'$uid','$pass','$status')";
+	$uquery="INSERT INTO users VALUES (NULL,'$uid','$pass_hash','$status')";
 
 	execute($pquery); 
 	execute($uquery); 
