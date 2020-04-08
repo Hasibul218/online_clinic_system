@@ -342,4 +342,24 @@ function patientrecords($pid)
 	return $results;
 }
 //data retrieve from patient records table ends///
+
+function patientschedule($pid)
+{
+	$query="SELECT * FROM patientrequest WHERE pid='$pid'";
+	$results=getdata($query);
+	return $results;
+}
+if (isset($_GET['delid'])) 
+{
+	$id=$_GET['delid'];
+	
+	deleterequest($id);
+	header('location:../view/PatientRequestedAppointment.php');
+	//echo "<script> alert('Successfully Deleted');window.location='../view/PatientRequestedAppointment.php' </script>";
+}
+function deleterequest($id)
+{
+	$query="DELETE FROM `patientrequest` WHERE id='$id'";
+	execute($query);
+}
 ?>

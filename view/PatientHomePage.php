@@ -37,6 +37,8 @@
 			<a href="PatientProfile.php">Profile</a>
 			<a href="PatientTakeAppointment.php">Take Appoinment</a>
 			<a href="PatientPrescription.php">Prescription</a>
+			<a href="PatientRequestedAppointment.php">Appointment</a>
+
 		</div>
 	</body>
 </html>
