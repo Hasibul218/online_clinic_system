@@ -543,6 +543,7 @@ if (isset($_POST['prescrive'])) {
 	$medicines=$_POST['medicines'];
 	$records="INSERT INTO `patientrecords` VALUES (NULL,'$did','$dname','$pid','$pname','$cid','$cname','$time','$date','$symtom','$diseases','$test','$tcname','$report','$medicines')";
 	execute($records);
+	deletewating($pno);
 	header('location:../view/DoctorPatientRecords.php');
 }
 function waitingpatient($pno)
