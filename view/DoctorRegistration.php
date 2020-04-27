@@ -7,6 +7,7 @@
 		<title>Doctor Registration Form</title>
 		<link rel="stylesheet"type="text/css"href="CSS/doctorform.css">
 		<link rel="stylesheet"type="text/css"href="CSS/homepage.css">
+		<link rel="stylesheet" href="CSS/faq.css">
 		<!--divission district thana-->
 		<script>
 		function divid()
@@ -220,10 +221,6 @@
 				<button name="submit"class="submit">Submit</button>
 			</form>	
 		</div>
-		<div class="bottom">
-			<a href=""class="d1">About us |</a>
-			<a href=""class="d1">FAQ| </a>
-			<a href=""class="d1"> Privacy Policy</a>
-		</div>
+		<?php include 'FAQ.php'; ?>
 	</body>
 </html>
