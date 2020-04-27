@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>FAQ Page</title>
-	<link rel="stylesheet" href="CSS/footer.css">
+	<link rel="stylesheet" href="CSS/faq.css">
 </head>
 <body>
 	<div class="footer">

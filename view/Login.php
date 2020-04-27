@@ -57,11 +57,7 @@
 					</tr>
 				</table>
 			</div>
-		</form>	
-		<div class="div1">
-			<a href=""class="d1">About us |</a>
-			<a href=""class="d1">FAQ| </a>
-			<a href=""class="d1"> Privacy Policy</a>
-		</div>
+		</form>
+		<?php include 'FAQ.php' ?>
 	</body>
 </html>
