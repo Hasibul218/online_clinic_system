@@ -113,8 +113,8 @@
 							<label>Gender</label><br><br>
 						</td>
 						<td>
-							<input type="radio"name="gender"value="Male" class="gender">Male &nbsp
-							<input type="radio"name="gender"value="Female" class="gender">Female 
+							<input type="radio"name="gender"value="Male" class="gender" <?php if($gender=="Male") echo"checked"; ?> > Male &nbsp
+							<input type="radio"name="gender"value="Female" class="gender" <?php if($gender=="Female") echo"checked"; ?>> Female 
 							<label class="errmgs"><?php echo $err_gender?></label>
 							<br><br>
 						</td>
@@ -175,13 +175,13 @@
 						</td>
 						<td>
 							<select name="specialty"id="field">
-								<option selected disabled>Select Specialty</option>
-								<option value="Allergy & immunology">Allergy & immunology</option>
-								<option value="Anesthesiology">Anesthesiology</option>
-								<option value="Dermatology">Dermatology</option>
-								<option value="Emergency medicine">Emergency medicine</option>
-								<option value="Medical genetics">Medical genetics</option>
-								<option value="Neurology">Neurology</option>
+								<option value="">Select Specialty</option>
+								<option <?php if($specialty=="Allergy") echo "selected";  ?> value="Allergy" >Allergy</option>
+								<option <?php if($specialty=="Anesthesiology") echo "selected";  ?> value="Anesthesiology">Anesthesiology</option>
+								<option <?php if($specialty=="Dermatology") echo "selected";  ?> value="Dermatology">Dermatology</option>
+								<option <?php if($specialty=="Emergency medicine") echo "selected";  ?> value="Emergency medicine">Emergency medicine</option>
+								<option <?php if($specialty=="Medical genetics") echo "selected";  ?> value="Medical genetics">Medical genetics</option>
+								<option <?php if($specialty=="Neurology") echo "selected";  ?> value="Neurology">Neurology</option>
 							</select>
 							<label class="errmgs"><?php echo $err_specialty?></label>
 							<br><br>

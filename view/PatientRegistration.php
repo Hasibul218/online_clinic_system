@@ -116,8 +116,8 @@
 							<label>Gender</label><br><br>
 						</td>
 						<td>
-							<input type="radio"name="gender"value="Male" class="gender">Male &nbsp
-							<input type="radio"name="gender"value="Female" class="gender">Female 
+							<input type="radio"name="gender"value="Male" class="gender" <?php if($gender=="Male") echo"checked"; ?> > Male &nbsp
+							<input type="radio"name="gender"value="Female" class="gender" <?php if($gender=="Female") echo"checked"; ?>> Female 
 							<label class="errmgs"><?php echo $err_gender?></label>
 							<br><br>
 						</td>
@@ -157,13 +157,13 @@
 						</td>
 						<td>
 							<select name="bloodgroup"id="field">
-								<option selected disabled>Select Blood Group</option>
-								<option value="A+">A+</option>
-								<option value="A-">A-</option>
-								<option value="B+">B+</option>
-								<option value="B-">B-</option>
-								<option value="O+">O+</option>
-								<option value="O-">O-</option>
+								<option value="">Select Blood Group</option>
+								<option <?php if($bloodgroup=="A+") echo "selected" ?> value="A+">A+</option>
+								<option <?php if($bloodgroup=="A-") echo "selected" ?> value="A-">A-</option>
+								<option <?php if($bloodgroup=="B+") echo "selected" ?> value="B+">B+</option>
+								<option <?php if($bloodgroup=="B-") echo "selected" ?> value="B-">B-</option>
+								<option <?php if($bloodgroup=="O+") echo "selected" ?> value="O+">O+</option>
+								<option <?php if($bloodgroup=="O-") echo "selected" ?> value="O-">O-</option>
 							</select>
 							<label class="errmgs"><?php echo $err_bloodgroup?></label>
 							<br><br>
